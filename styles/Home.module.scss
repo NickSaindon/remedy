@@ -1,0 +1,187 @@
+$numberOfItems: 4; /* the number of items in the carousel */
+$visibleItemDuration: 4s; /* time during which a carousel item is fully visible */
+$transitionDuration: 1s; /* duration of the transition between two carousel items*/
+
+/* END EDIT */
+
+
+$oneItemDuration: $visibleItemDuration + $transitionDuration;
+$carouselPeriod: $oneItemDuration * $numberOfItems;
+
+
+// Home Page
+.home-container {
+  .header-container {
+    width: 100vw;
+    height: 100vh;
+    header {
+      position: relative;
+      width: 100%;
+      .row {
+        margin: 0;
+      }
+      .header-right {
+        .logo {
+          padding-top: 275px;
+          text-align: center;
+        }
+        .typing-text {
+          width: 80%;
+          margin: 0 auto;
+        }
+      }
+    }
+  
+    .slider {
+      width: 90%;
+      height: 790px;
+      position: relative;
+      overflow: hidden;
+      margin: 70px 0 0 14px;
+      list-style-type: none;
+      background-color: white;
+      li {
+        width:100%;
+        height:100%;
+        position: absolute;
+        overflow: hidden;
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        opacity: 0;
+        animation: dissolve $carouselPeriod linear infinite;      
+        background-image: url("/images/kratom.jpg");
+        &:nth-child(2) {
+          background-image: url("/images/kratom2.jpg");
+          animation-delay: $oneItemDuration;        
+        }
+        &:nth-child(3) {
+          background-image: url("/images/kratom3.jpg");
+          animation-delay: 2 * $oneItemDuration;
+          
+        }
+        &:nth-child(4) {
+          background-image: url("/images/kratom4.jpg");
+          animation-delay: 3 * $oneItemDuration;
+        
+        }
+      }
+    }
+  }
+
+  .about-section {
+    .about {
+      background-color: rgb(246, 246, 246);
+      margin: 0 25px;
+      overflow: hidden;
+      .about-left {
+        padding-top: 50px;
+      }
+      .about-right {
+        position: relative;
+        padding-top: 75px;
+        .giant-text {
+          text-transform: uppercase;
+          font-weight: 600;
+          font-family: Trade, sans-serif;
+          letter-spacing: 0px;
+          font-size: 40vw;
+          position: absolute;
+          line-height: 0.85;
+          pointer-events: none;
+          color: rgb(40, 40, 40);
+          top: 40%;
+          z-index: 99;
+          left: 50px;
+        }
+      }
+
+    }
+    .product-section {
+      position: relative;
+      margin: 0 50px;
+      background-color: white;
+      .featured {
+        padding: 80px 0;
+      }
+      .product-right {
+        .leaf-img {
+          margin: 50px 0 !important;
+          transform: rotate(120deg) scaleX(-1);
+        }
+        h2 {
+          text-align: right;
+          padding-right: 10%;
+        }
+      }
+    }
+  }
+  .product-cont {
+    padding: 150px 0;
+    .product-left {
+      .leaf-img {
+        width: 100%;
+        margin: 80px auto;
+        text-align: center;
+        transform: rotate(250deg);
+      }
+    }
+    .product-right {
+      padding-top: 100px;
+      h2 {
+        text-align: right;
+        padding-right: 10%;
+      }
+    }
+  }
+  .faq-section {
+    overflow: hidden;
+    .faq-left {
+      position: relative;
+      background-color: #ccc;
+      height: 65vh;
+
+      h1 {
+        text-transform: uppercase;
+        font-weight: 600;
+        font-family: Trade, sans-serif;
+        letter-spacing: 0px;
+        position: absolute;
+        line-height: 0.85;
+        pointer-events: none;
+        color: white;
+        z-index: 99;
+        &:nth-child(1) {
+          font-size: 30vw;
+          left: -120px;
+          top: -30px;
+        }
+        &:nth-child(2) {
+          font-size: 25vw;
+          left: -150px;
+          top: 350px
+        }
+      }
+    } 
+    .faq-right {
+      height: 65vh;
+      background-color: #000000;
+      color: white;
+      .faq-content {
+        width: 80%;
+        padding: 5% 0 0 20%;
+      }
+    }
+  }
+}
+
+
+.full-screen {
+  width: 100%;
+  height: 100vh;
+}
+
+@keyframes dissolve {
+  0%, 30%, 100% { opacity: 0; }
+  5%, 25% { opacity: 1;}
+}
