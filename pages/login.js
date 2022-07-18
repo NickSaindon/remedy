@@ -7,8 +7,8 @@ import axios from 'axios';
 import { Store } from '../utils/Store';
 import Cookies from 'js-cookie';
 import { Controller, useForm } from 'react-hook-form';
-import MessageBox from '../components/MessageBox';
 import { getError } from '../utils/error';
+import { ToastContainer, toast, Slide } from "react-toastify";
 
 const Login = () => {
   const { handleSubmit, control, formState: { errors } } = useForm();
@@ -26,7 +26,6 @@ const Login = () => {
  
 
   const submitHandler = async ({email, password}) => {
-    setHasError(false)
     try {
       const { data } = await axios.post('/api/users/login', {
         email, 
@@ -36,8 +35,9 @@ const Login = () => {
       Cookies.set('userInfo', data);
       router.push(redirect || '/');
     } catch (err) {
-      setHasError(true);
-      dispatch({ type: 'USER_LOGIN_FAIL', payload: getError(err) })
+      toast.error(getError(err), {
+        theme: "colored"
+      });
     }
   }
 
@@ -46,7 +46,14 @@ const Login = () => {
       <div className="login-container text-center">
         <main className="form-signin">
           <div className="row justify-content-md-center">
-            {hasError && error && <MessageBox variant="danger">{error}</MessageBox>}
+              <ToastContainer 
+              position="top-center" 
+              draggable={false} 
+              transition={Slide} 
+              autoClose={5000}
+              hideProgressBar={true}
+              className="toast-alert"
+            />
             <form onSubmit={handleSubmit(submitHandler)} className="col-lg-4 col-md-12 col-sm-12 needs-validation" noValidate>
               <Image src="/images/remedy_logo.png" width={150} height={65} alt=""/>
               <h1 className="h3 mb-3 fw-normal">Please Signin</h1>

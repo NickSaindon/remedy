@@ -186,7 +186,7 @@ const Home = () => {
                   </div>
                   <div className="col-lg-6 header-right">
                     <div className="logo">
-                        <Image src="/images/remedy_logo.png" width={450} height={200} alt="..." />
+                      <Image src="/images/remedy_logo.png" width={450} height={200} alt="..." />
                     </div>
                     <h1 className="typing-text text-center"></h1>
                   </div>
@@ -202,11 +202,16 @@ const Home = () => {
                 <div className="col-lg-8 col-md-12 col-sm-12 about-left">
                   <h2>What About Remedy?</h2>
                   <p>
-                    Remedy is a company that Manufactures Kratom by grinding it into fine powder or nano powder.  Our goal is to ship 
-                    quality Kratom that is safe from any metals, bacteria, and that is grown naturally without the useage of any pesticides.
+                    Remedy is a company that Manufactures Kratom through many different processes for vendors to sell in the market.  Our goal is to ship 
+                    quality Kratom that is safe from any metals, bacteria, and that is grown naturally without the useage of any non organic pesticides.
                     Currently the only two countries that export Kratom are Indonesia and Thailand, and from our research and lab test Thai 
-                    Kratom is far superior. Kratom is native to Southeast Asia and has been safely used there for centuries, and decades in 
-                    the United States.  Remedy is a company dedicated to mainting quiality and why we have chosen to work with AKA members who also have
+                    Kratom is of a higher quality.  The word Kratom is actually a Thai word that means "hut" because of the shape of the tree and the word Maeng Da in 
+                    Thai means "Crawfish" which is used to describe the shape of the top of the leaf.  
+                    <br /><br />
+                    Most of the world’s Kratom originates from Thailand. The humid air, 
+                    and the acidic soil is rich in all the right nutrients making it the perfect place for the Kratom tree to grow.  This is also why Remedy offers to its vendors 
+                    an opportunity of a lifetime with our <b>Plantation Investment Program</b>. This opportunity enables vendors to secure their own supply of Kratom tress that 
+                    we plant and harest solely for their company needs. Remedy is a company dedicated to mainting quiality and why we have chosen to work with AKA members who also have
                     are committed to the furture of Kratom and all the people it can truly help. 
                   </p>
                   <Link href="/about" passHref>
@@ -222,7 +227,7 @@ const Home = () => {
             <section className="product-section">
               <div className="container">
                 <div className="row featured">
-                  <div className="col-8">
+                  <div className="col-lg-8 col-md-12">
                     <h2>Featured Products</h2>
                     <p>
                       Check out some of the products we have to offer.  We offer an array of Kratom to can suit all of your needs.  Quality all natural Kratom that is grown in Thailand.  
@@ -230,7 +235,7 @@ const Home = () => {
                     </p>
                   </div>
                 </div>
-                <div className="row g-4 g-lg-5">
+                <div className="row g-lg-5 g-md-1">
                   <div className="col-lg-6 col-md-12 col-sm-12 product-left align-items-center">
                     <h2>Meang Da</h2>
                     <Image src="/images/maeng-da-red1.jpg" className="d-block w-100" width={500} height={500} alt="..." />
@@ -251,7 +256,7 @@ const Home = () => {
         </section>
         <section className="product-cont">
           <div className="container">
-            <div className="row g-4 g-lg-5">
+            <div className="row g-lg-5 g-md-1">
               <div className="col-lg-6 col-md-12 col-sm-12 product-left">
                 <h2>Tang Qua</h2>
                 <Image src="/images/tang-qua1.jpg" className="d-block w-100" width={500} height={500} alt="..." />
@@ -271,11 +276,11 @@ const Home = () => {
         <section className="faq-section">
           <div className="container-fluid">
             <div className="row">
-              <div className="col-6 faq-left">
+              <div className="col-lg-6 col-md-12 faq-left">
                 <h1>GET</h1>
               <h1>STARTED</h1>
               </div>
-              <div className="col-6 faq-right">
+              <div className="col-lg-6 col-md-12 faq-right">
                 <div className="faq-content">
                   <h1>Register</h1>
                   <p>If you are a Vendor of Kratom and your company is a member of the AKA then look no further.

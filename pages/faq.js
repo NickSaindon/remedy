@@ -6,26 +6,26 @@ const FAQ = () => {
 
   useEffect(() => {
     gsap.timeline()
-    .from(".faq-header-left .faq-img", {transform: 'scaleX(0)', transformOrigin: 'center'})
-    .from(".faq-header-right h1:nth-child(1)", {y:-100, opacity:0, ease:"back", duration: 1})
-    .from(".faq-header-right h1:nth-child(2)", {x:-100, opacity:0, ease:"back", duration: 1})
-    .set(".faq-header-right .bi-arrow-down", {"visibility": "visible"})
-    .from(".faq-header-right .bi-arrow-down", {opacity:0, ease:"back", duration: 1})
+    .from(".page-header-left .faq-img", {transform: 'scaleX(0)', transformOrigin: 'center'})
+    .from(".page-header-right h1:nth-child(1)", {y:-100, opacity:0, ease:"back", duration: 1})
+    .from(".page-header-right h1:nth-child(2)", {x:-100, opacity:0, ease:"back", duration: 1})
+    .set(".page-header-right .bi-arrow-down", {"visibility": "visible"})
+    .from(".page-header-right .bi-arrow-down", {opacity:0, ease:"back", duration: 1})
     .delay(1.5) 
 }, [])
 
   return (
     <Layout>
       <div className="faq-container">
-        <div className="faq-header">
+        <div className="page-header">
           <div className="container-fluid">
             <div className="row">
-              <div className="col-lg-6 faq-header-left">
+              <div className="col-lg-6 page-header-left">
                   <div className="faq-img" />
               </div>
-              <div className="col-lg-6 faq-header-right text-center">
+              <div className="col-lg-6 page-header-right text-center">
                 <h1>FAQ</h1>
-                <h1>SK</h1>  
+                <h1 style={{marginLeft: "-15px"}}>SK</h1>  
                 <i className="bi bi-arrow-down"></i>
               </div>
             </div>
@@ -43,7 +43,11 @@ const FAQ = () => {
                 </h2>
                 <div id="remedyCollapseOne" className="accordion-collapse collapse show" aria-labelledby="remedyHeadingOne" data-bs-parent="#remedyQuestions">
                   <div className="accordion-body">
-                    <strong>This is the first items accordion body.</strong> It is shown by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. Its also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+                    There are two ways to becoming a vendor with Remedy.  These two ways are either through a Manufacturing Agreement or a Plantation Investment Agreement which Remedy offers to AKA vendors.  Once either one of these agreements are made
+                    vendors can register here on this website which we will approve and give access to making orders.
+                    <br/><br />
+                    If a vendor chooses the Manufactuing Agreement we will source Kratom from platations we have contracted and/or from our own platation in which we will also process through our factory.  If a vendor is actually looking to procure their own
+                    Kratom through our Plantation Investment Agreement we will plant and harest the vendors own trees and we will source from the vendors own supply and process it at our factory.  
                   </div>
                 </div>
               </div>
@@ -55,19 +59,20 @@ const FAQ = () => {
                 </h2>
                 <div id="remedyCollapseTwo" className="accordion-collapse collapse" aria-labelledby="remedyHeadingTwo" data-bs-parent="#remedyQuestions">
                   <div className="accordion-body">
-                    <strong>This is the second items accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. Its also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+                    This is a great question as the Kratom can be procured in serveral different ways.  The simple answer is from plantations in Thailand.  However, which plantation is really up to the vendor and which
+                    option they choose to take.  We can either source the Kratom from plantations we have contracts with, and/or from our own plantation, or from vendors own trees through our Planatation Investment.
                   </div>
                 </div>
               </div>
               <div className="accordion-item">
                 <h2 className="accordion-header" id="remedyHeadingThree">
                   <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#remedyCollapseThree" aria-expanded="false" aria-controls="remedyCollapseThree">
-                    How is the Kratom Shipped?
+                    How is the Kratom processed?
                   </button>
                 </h2>
                 <div id="remedyCollapseThree" className="accordion-collapse collapse" aria-labelledby="remedyHeadingThree" data-bs-parent="#remedyQuestions">
                   <div className="accordion-body">
-                    <strong>This is the third items accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. Its also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+                    
                   </div>
                 </div>
               </div>
@@ -86,7 +91,7 @@ const FAQ = () => {
               <div className="accordion-item">
                 <h2 className="accordion-header" id="remedyHeadingFive">
                   <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#remedyCollapseFive" aria-expanded="false" aria-controls="remedyCollapseFive">
-                    How is the Kratom Shipped?
+                    How can Remedy's Plantation Investment Program help vendors?
                   </button>
                 </h2>
                 <div id="remedyCollapseFive" className="accordion-collapse collapse" aria-labelledby="remedyHeadingFive" data-bs-parent="#remedyQuestions">
@@ -114,6 +119,19 @@ const FAQ = () => {
                     their mood and focus.<br/><br/> 
                     Natural Kratom comes from a tropical tree in the coffee family native to Southeast Asia and has been used for centuries in traditional medicines. 
                     Kratom has been safely used for decades here in the United States, and is becoming increasingly popular because of what it is, and what it isn’t.
+                  </div>
+                </div>
+              </div>
+              <div className="accordion-item">
+                <h2 className="accordion-header" id="kratomHeadingSix">
+                  <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#kratomCollapseSix" aria-expanded="false" aria-controls="kratomCollapseSix">
+                    What are the different types of Kratom?
+                  </button>
+                </h2>
+                <div id="kratomCollapseSix" className="accordion-collapse collapse" aria-labelledby="kratomHeadingSix" data-bs-parent="#kratomQuestions">
+                  <div className="accordion-body">
+                    Kratom is not a drug, and not a synthetic substance. Natural Kratom is a safe herbal supplement that is used by millions for pain 
+                    management or an energy boost.  Kratom has been used in Southeast Asia for centuries with no reported deaths.              
                   </div>
                 </div>
               </div>

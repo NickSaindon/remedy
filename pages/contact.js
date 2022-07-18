@@ -16,7 +16,7 @@ const Contact = () => {
 
   useEffect(() => {
       gsap.timeline()
-      .from(".contact-header-left .contact-img", {transform: 'scaleX(0)', transformOrigin: 'center'})
+      .from(".page-header-left .contact-img", {transform: 'scaleX(0)', transformOrigin: 'center'})
       .from(".contact-header-right h1:nth-child(1)", {y:-100, opacity:0, ease:"back", duration: 1})
       .from(".contact-header-right h1:nth-child(2)", {x:-100, opacity:0, ease:"back", duration: 1})
       .set(".contact-header-right .bi-arrow-down", {"visibility": "visible"})
@@ -62,12 +62,11 @@ const Contact = () => {
           hideProgressBar={true}
           className="toast-alert"
         />
-
-        <div className="contact-header">
+        <div className="page-header">
           <div className="container-fluid">
             <div className="row">
-              <div className="col-lg-6 contact-header-left">
-                  <div className="contact-img" />
+              <div className="col-lg-6 page-header-left">
+                <div className="contact-img" />
               </div>
               <div className="col-lg-6 contact-header-right text-center">
                 <h1>CONTACT</h1>
@@ -78,8 +77,7 @@ const Contact = () => {
           </div>
         </div>
         <div className="contact-form">
-
-        <div className="form-contact">
+          <div className="form-contact">
           <div className="row justify-content-md-center ">
             <form onSubmit={handleSubmit(onSubmitForm, phone, setPhone)} 
               className="col-lg-4 col-md-12 col-sm-12 text-center needs-validation" noValidate>

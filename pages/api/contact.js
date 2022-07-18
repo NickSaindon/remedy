@@ -43,14 +43,14 @@ export default async (req, res) => {
                   <tbody>
                     <tr>
                       <td align="center">
-                        <table id="intro" cellpadding="0" cellspacing="0" border="0" bgcolor="#4F6331" align="center" style="width: 100%; padding: 0; margin: 0; background-image: url(https://cdn.pixabay.com/photo/2016/11/14/02/51/rice-plantation-1822444_960_720.jpg?raw=true); background-size: auto 102%; background-position: center center; background-repeat: no-repeat; background-color: #080e02">
+                        <table id="intro" cellpadding="0" cellspacing="0" border="0" bgcolor="#4F6331" align="center" style="width: 100%; padding: 0; margin: 0; background-image: url(https://images.pexels.com/photos/730424/pexels-photo-730424.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1?raw=true); background-size: auto 102%; background-position: center center; background-repeat: no-repeat; background-color: #080e02">
                           <tbody >
                             <tr><td colspan="3" height="20"></td></tr>
                             <tr>
                               <td width="90" style="width: 9%;"></td>
                               <td align="center">
                                 <div border="0" style="border: none; height: 60px;">
-                                  <img src="https://github.com/NickSaindon/land-leasing-contact/blob/main/public/images/Remedy_Export_Logo.png?raw=true" alt="Remedy LLC" width="100" height="100" border="0" style="border: none; display: block; -ms-interpolation-mode: bicubic;">
+                                  <img src="https://github.com/NickSaindon/remedy/blob/main/public/images/remedy_logo.png?raw=true" alt="Remedy LLC" width="200" height="104" border="0" style="border: none; display: block; -ms-interpolation-mode: bicubic;">
                                 </div>
                               </td>
                               <td width="90" style="width: 9%;"></td>
@@ -58,7 +58,7 @@ export default async (req, res) => {
                             <tr><td colspan="3" height="100"></td></tr>
                             <tr>
                               <td colspan="3" height="60" align="center">
-                                <div border="0" style="border: none; line-height: 60px; color: #ffffff; font-family: Verdana, Geneva, sans-serif; font-size: 52px; text-transform: uppercase; font-weight: bolder;">Land Leasing</div>
+                                <div border="0" style="border: none; line-height: 60px; color: #ffffff; font-family: Verdana, Geneva, sans-serif; font-size: 52px; text-transform: uppercase; font-weight: bolder;">Remedy Contact</div>
                               </td>
                             </tr>
                             <tr>
@@ -75,7 +75,7 @@ export default async (req, res) => {
                                       <td align="center">
                                         <div border="0" style="border: none; height: 60px;">
                                           <p style="font-size: 18px; line-height: 24px; font-family: Verdana, Geneva, sans-serif; color: #ffffff; text-align: center; mso-table-lspace:0;mso-table-rspace:0;">
-                                            This is an email from the Remedy Export landing page with info of those interested in our program!
+                                            This is an email from the Remedy LLC website contact form.  Please try and return this message with any answers to questions. 
                                           </p>
                                         </div>
                                       </td>
@@ -221,7 +221,7 @@ export default async (req, res) => {
                             <tr>
                               <td align="center">
                                 <div border="0" style="border: none; line-height: 14px; color: #ffffff; font-family: Verdana, Geneva, sans-serif; font-size: 16px;">
-                                  2022 © Remedy Export
+                                  2022 © Remedy LLC
                                 </div>
                               </td>
                             </tr>
