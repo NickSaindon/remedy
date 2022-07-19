@@ -1,9 +1,9 @@
 import axios from 'axios';
-import Layout from '../components/Layout';
+import Layout from '../../components/Layout';
 import dynamic from 'next/dynamic';
 import { useRouter } from 'next/router';
 import { useState, useEffect, useContext } from 'react';
-import { getError } from '../utils/error';
+import { getError } from '../../utils/error';
 import { Store } from '../../utils/Store';
 import { Controller, useForm } from 'react-hook-form';
 import Cookies from 'js-cookie';

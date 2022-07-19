@@ -5,7 +5,6 @@ import StateOptions from "../utils/stateOptions";
 import { Store } from '../utils/Store';
 import Cookies from 'js-cookie';
 import { Controller, useForm } from 'react-hook-form';
-import Layout from '../components/Layout';
 
 const Shipping = () => {
   const {

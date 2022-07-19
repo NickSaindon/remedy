@@ -1,5 +1,5 @@
 import Image from "next/image";
-import Layout from '../components/Layout';
+import Layout from '../../components/Layout';
 import { useState, useContext, useEffect } from 'react';
 import { Store } from '../../utils/Store';
 import Link from 'next/link'
