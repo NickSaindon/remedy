@@ -1,4 +1,5 @@
 import axios from 'axios';
+import Layout from '../../components/Layout';
 import dynamic from 'next/dynamic';
 import { useRouter } from 'next/router';
 import Link from 'next/link'
@@ -51,71 +52,73 @@ const OrderHistory = () => {
   }, []);
 
   return (
-    <div className="users-container">
-      <div className="container-fluid">
-        <div className="row">
-          <div className="col-lg-2">
-            <SideNav />
-          </div>
-          <div className="col-lg-10">
-            <div className="card vendor-user-card">
-              <div className="card-body">
-                <div className="row">
-                  <div className="col-md-12">
-                    <h1 className="card-title text-center">Order History</h1>
+    <Layout>
+      <div className="users-container">
+        <div className="container-fluid">
+          <div className="row">
+            <div className="col-lg-2">
+              <SideNav />
+            </div>
+            <div className="col-lg-10">
+              <div className="card vendor-user-card">
+                <div className="card-body">
+                  <div className="row">
+                    <div className="col-md-12">
+                      <h1 className="card-title text-center">Order History</h1>
+                    </div>
                   </div>
-                </div>
-                <div className="product-list-table">
-                  {loading ? (
-                    <div className="spinner-border text-primary" role="status">
-                      <span className="visually-hidden">Loading...</span>
-                    </div>
-                  ) : error ? (
-                    <div className="alert alert-danger" role="alert">
-                      {error}
-                    </div>
-                  ) : (
-                    <table className="table table-striped">
-                      <thead>
-                        <tr>
-                          <th scope="col">ID</th>
-                          <th scope="col">DATE</th>
-                          <th scope="col">DELIVERED</th>
-                          <th scope="col">ACTION</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        {orders.map((order) => (
-                          <tr key={order._id}>
-                            <td>{order._id.substring(20, 24)}</td>
-                            <td>{moment(order.createdAt).format('MM/DD/YYYY')}</td>
-                            <td>
-                              {order.isDelivered
-                                ? `delivered at ${order.deliveredAt}`
-                                : 'not delivered'}
-                            </td>
-                            <td className="table-actions">
-                              <Link href={`/order/${order._id}`} passHref>
-                                <button 
-                                  type="button" 
-                                  className="btn btn-primary"
-                                >
-                                  Details
-                                </button>
-                              </Link>
-                            </td>
+                  <div className="product-list-table">
+                    {loading ? (
+                      <div className="spinner-border text-primary" role="status">
+                        <span className="visually-hidden">Loading...</span>
+                      </div>
+                    ) : error ? (
+                      <div className="alert alert-danger" role="alert">
+                        {error}
+                      </div>
+                    ) : (
+                      <table className="table table-striped">
+                        <thead>
+                          <tr>
+                            <th scope="col">ID</th>
+                            <th scope="col">DATE</th>
+                            <th scope="col">DELIVERED</th>
+                            <th scope="col">ACTION</th>
                           </tr>
-                        ))}
-                      </tbody>
-                    </table>
-                  )}
+                        </thead>
+                        <tbody>
+                          {orders.map((order) => (
+                            <tr key={order._id}>
+                              <td>{order._id.substring(20, 24)}</td>
+                              <td>{moment(order.createdAt).format('MM/DD/YYYY')}</td>
+                              <td>
+                                {order.isDelivered
+                                  ? `delivered at ${order.deliveredAt}`
+                                  : 'not delivered'}
+                              </td>
+                              <td className="table-actions">
+                                <Link href={`/order/${order._id}`} passHref>
+                                  <button 
+                                    type="button" 
+                                    className="btn btn-primary"
+                                  >
+                                    Details
+                                  </button>
+                                </Link>
+                              </td>
+                            </tr>
+                          ))}
+                        </tbody>
+                      </table>
+                    )}
+                  </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
+    </Layout>
   );
 };
 

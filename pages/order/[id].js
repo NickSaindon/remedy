@@ -1,7 +1,6 @@
 import React, { useContext, useEffect, useReducer } from 'react';
 import dynamic from 'next/dynamic';
-import CheckoutWizard from '../../components/CheckoutWizard';
-// import Layout from '../../components/Layout';
+import Layout from '../../components/Layout';
 import { Store } from '../../utils/Store';
 import Link from 'next/link';
 import Image from 'next/image';
@@ -9,7 +8,7 @@ import axios from 'axios';
 import { useRouter } from 'next/router';
 import { getError } from '../../utils/error';
 import { PayPalButtons, usePayPalScriptReducer } from '@paypal/react-paypal-js';
-
+import { ToastContainer, toast, Slide } from "react-toastify";
 
 function reducer(state, action) {
   switch (action.type) {
@@ -130,7 +129,6 @@ const Order = ({params}) => {
       loadPaypalScript();
     }
   }, [order, successPay, successDeliver]);
-  // const { enqueueSnackbar } = useSnackbar();
   
   const createOrder = (data, actions) => {
     return actions.order
@@ -158,115 +156,130 @@ const Order = ({params}) => {
           }
         );
         dispatch({ type: 'PAY_SUCCESS', payload: data });
-      //   enqueueSnackbar('Order is paid', { variant: 'success' });
+        toast.error("Order is paid", {
+          theme: "colored"
+        });
       } catch (err) {
         dispatch({ type: 'PAY_FAIL', payload: getError(err) });
-      //   enqueueSnackbar(getError(err), { variant: 'error' });
+        toast.error(getError(err), {
+          theme: "colored"
+        });
       }
     });
   }
   
-  const onError = (err) => {
-  //   enqueueSnackbar(getError(err), { variant: 'error' });
-  }
+  // const onError = (err) => {
+  //   toast.error(getError(err), {
+  //     theme: "colored"
+  //   });
+  // }
   
-    async function deliverOrderHandler() {
-      try {
-        dispatch({ type: 'DELIVER_REQUEST' });
-        const { data } = await axios.put(
-          `/api/orders/${order._id}/deliver`,
-          {},
-          {
-            headers: { authorization: `Bearer ${userInfo.token}` },
-          }
-        );
-        dispatch({ type: 'DELIVER_SUCCESS', payload: data });
-        // enqueueSnackbar('Order is delivered', { variant: 'success' });
-      } catch (err) {
-        dispatch({ type: 'DELIVER_FAIL', payload: getError(err) });
-        // enqueueSnackbar(getError(err), { variant: 'error' });
-      }
+  async function deliverOrderHandler() {
+    try {
+      dispatch({ type: 'DELIVER_REQUEST' });
+      const { data } = await axios.put(
+        `/api/orders/${order._id}/deliver`,
+        {},
+        {
+          headers: { authorization: `Bearer ${userInfo.token}` },
+        }
+      );
+      dispatch({ type: 'DELIVER_SUCCESS', payload: data });
+      toast.success("Order is delivered", {
+        theme: "colored"
+      });
+    } catch (err) {
+      dispatch({ type: 'DELIVER_FAIL', payload: getError(err) });
+      toast.error(getError(err), {
+        theme: "colored"
+      });
     }
-
-
+  }
 
   return (
-    <div className="place-order-container">
-      <CheckoutWizard />
-      <div className="container">
-        <h1 className="text-center">Order {orderId}</h1>
-        {loading ? (
-          <div className="spinner-border text-primary" role="status">
-            <span className="visually-hidden">Loading...</span>
-          </div>
-        ) : error ? (
-          <MessageBox variant="danger">{error}</MessageBox>
-        ) : (
-          <div className="row">
-            <div className="col-lg-12">
-              <div className="card shipping-card">
-                <div className="card-body">
-                  <h2 className="card-title">Shipping Address</h2>
-                  <p>
-                    {shippingAddress.fullName}, {shippingAddress.address},{' '}
-                    {shippingAddress.city}, {shippingAddress.zipCode}, {' '}
-                    {shippingAddress.state}
-                  </p>
-                  <p>
-                    Status:{' '}
-                    {isDelivered
-                      ? `delivered at ${deliveredAt}`
-                      : 'not delivered'}
-                  </p>
+    <Layout>
+      <div className="place-order-container">
+        <ToastContainer 
+          position="top-center" 
+          draggable={false} 
+          transition={Slide} 
+          autoClose={5000}
+          hideProgressBar={true}
+          className="toast-alert"
+        />
+        <div className="container">
+          <h1 className="text-center">Order {orderId}</h1>
+          {loading ? (
+            <div className="spinner-border text-primary" role="status">
+              <span className="visually-hidden">Loading...</span>
+            </div>
+          ) : error ? (
+            <MessageBox variant="danger">{error}</MessageBox>
+          ) : (
+            <div className="row">
+              <div className="col-lg-12">
+                <div className="card shipping-card">
+                  <div className="card-body">
+                    <h2 className="card-title">Shipping Address</h2>
+                    <p>
+                      {shippingAddress.fullName}, {shippingAddress.address},{' '}
+                      {shippingAddress.city}, {shippingAddress.zipCode}, {' '}
+                      {shippingAddress.state}
+                    </p>
+                    <p>
+                      Status:{' '}
+                      {isDelivered
+                        ? `delivered at ${deliveredAt}`
+                        : 'not delivered'}
+                    </p>
+                  </div>
+                </div>
+                <div className="card payment-card">
+                  <div className="card-body">
+                    <h2 className="card-title">Payment Method</h2>
+                    <p>{paymentMethod}</p>
+                    <p>
+                        Status: {isPaid ? `paid at ${paidAt}` : 'not paid'}
+                    </p>
+                  </div>
+                </div>
+                <div className="card order-card">
+                  <div className="card-body">
+                    <h2 className="card-title">Order Items</h2>
+                    <table className="table">
+                      <thead>
+                        <tr>
+                            <th scope="col">Image</th>
+                            <th scope="col">Name</th>
+                            <th scope="col">Quantity</th>
+                            <th scope="col">Price</th>
+                            <th scope="col">Grind Type</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {orderItems.map((item) => (
+                          <tr key={item._id}>
+                                <td>
+                                <Link href={`/product/${item.slug}`} passHref>
+                                    <Image src={item.imageOne} className="d-block w-100" width={50} height={50} alt="..." />
+                                </Link>
+                                </td>
+                                <td className="align-middle">{item.name}<br />{item.color}</td>
+                                <td className="align-middle">{item.quantity}t</td>
+                                <td className="align-middle">${item.tierPrice}</td>
+                                <td className="align-middle">{item.grindType}</td>
+                          </tr>
+                        ))}
+                      </tbody>
+                    </table>
+                  </div>
                 </div>
               </div>
-                    <div className="card payment-card">
-                        <div className="card-body">
-                            <h2 className="card-title">Payment Method</h2>
-                            <p>{paymentMethod}</p>
-                            <p>
-                                Status: {isPaid ? `paid at ${paidAt}` : 'not paid'}
-                            </p>
-                        </div>
-
-                    </div>
-                    <div className="card order-card">
-                        <div className="card-body">
-                            <h2 className="card-title">Order Items</h2>
-                            <table className="table">
-                                <thead>
-                                    <tr>
-                                        <th scope="col">Image</th>
-                                        <th scope="col">Name</th>
-                                        <th scope="col">Quantity</th>
-                                        <th scope="col">Price</th>
-                                        <th scope="col">Grind Type</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                {orderItems.map((item) => (
-                                    <tr key={item._id}>
-                                        <td>
-                                        <Link href={`/product/${item.slug}`} passHref>
-                                            <Image src={item.imageOne} className="d-block w-100" width={50} height={50} alt="..." />
-                                        </Link>
-                                        </td>
-                                        <td className="align-middle">{item.name}<br />{item.color}</td>
-                                        <td className="align-middle">{item.quantity}t</td>
-                                        <td className="align-middle">${item.tierPrice}</td>
-                                        <td className="align-middle">{item.grindType}</td>
-                                    </tr>
-                                ))}
-                                </tbody>
-                                </table>
-                        </div>
-
-                    </div>
-                </div>
-          </div>
-        )}
+            </div>
+          )}
+        </div>
       </div>
-    </div>
+    </Layout>
   );
 };
 

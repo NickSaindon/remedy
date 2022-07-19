@@ -5,7 +5,6 @@ import StateOptions from "../utils/stateOptions";
 import { Store } from '../utils/Store';
 import Cookies from 'js-cookie';
 import { Controller, useForm } from 'react-hook-form';
-import CheckoutWizard from '../components/CheckoutWizard';
 import Layout from '../components/Layout';
 
 const Shipping = () => {
@@ -22,7 +21,7 @@ const Shipping = () => {
 
   useEffect(() => {
     if (!userInfo.isVendor && !userInfo.isAdmin) {
-        router.push('/login');
+      router.push('/login');
     }
   }, []);
 
@@ -46,177 +45,170 @@ const Shipping = () => {
     }
   };
 
-
   return (
     <Layout>
       <div className="shipping-container text-center">
-        {userInfo && userInfo.isVendor === true &&
-          <CheckoutWizard />
-        }
-            <h1> Shipping Address</h1>
-
+        <h1> Shipping Address</h1>
         <main className="form-shipping">
-            <div className="container">
+          <div className="container">
             <div className="row justify-content-md-center">
-
-            <form onSubmit={handleSubmit(submitHandler)} className="col-lg-6 col-md-12 col-sm-12">
-              <div className="form-floating">
-                <Controller
-                  name="fullName"
-                  control={control}
-                  defaultValue=""
-                  rules={{
-                    required: true,
-                    minLength: 2,
-                  }}
-                  render={({ field }) => (
-                    <input 
-                      type="text" 
-                      className={`form-control ${errors.fullName ? 'is-invalid' : ''}`}
-                      id="fullName" 
-                      placeholder="Full Name" 
-                      {...field}
-                    />
-                  )}
-                />
-                <div className="invalid-feedback">
-                  {
-                    errors.fullName
+              <form onSubmit={handleSubmit(submitHandler)} className="col-lg-6 col-md-12 col-sm-12">
+                <div className="form-floating">
+                  <Controller
+                    name="fullName"
+                    control={control}
+                    defaultValue=""
+                    rules={{
+                      required: true,
+                      minLength: 2,
+                    }}
+                    render={({ field }) => (
+                      <input 
+                        type="text" 
+                        className={`form-control ${errors.fullName ? 'is-invalid' : ''}`}
+                        id="fullName" 
+                        placeholder="Full Name" 
+                        {...field}
+                      />
+                    )}
+                  />
+                  <div className="invalid-feedback">
+                    {
+                      errors.fullName
                       ? errors.fullName.type === 'minLength'
-                        ? 'Full Name length is more than 1'
-                        : 'Full Name is required'
+                      ? 'Full Name length is more than 1'
+                      : 'Full Name is required'
                       : ''
-                  }
+                    }
+                  </div>
+                  <label htmlFor="name">Full Name</label>
                 </div>
-                <label htmlFor="name">Full Name</label>
-              </div>
-              <div className="form-floating">
-                <Controller
-                  name="address"
-                  control={control}
-                  defaultValue=""
-                  rules={{
-                    required: true,
-                    minLength: 2,
-                  }}
-                  render={({ field }) => (
-                    <input 
-                      type="text" 
-                      className={`form-control ${errors.address ? 'is-invalid' : ''}`}
-                      id="address" 
-                      placeholder="Address" 
-                      {...field}
-                    />
-                  )}
-                />
-                <div className="invalid-feedback">
-                  {
-                    errors.address
+                <div className="form-floating">
+                  <Controller
+                    name="address"
+                    control={control}
+                    defaultValue=""
+                    rules={{
+                      required: true,
+                      minLength: 2,
+                    }}
+                    render={({ field }) => (
+                      <input 
+                        type="text" 
+                        className={`form-control ${errors.address ? 'is-invalid' : ''}`}
+                        id="address" 
+                        placeholder="Address" 
+                        {...field}
+                      />
+                    )}
+                  />
+                  <div className="invalid-feedback">
+                    {
+                      errors.address
                       ? errors.address.type === 'minLength'
-                        ? 'Address length is more than 1'
-                        : 'Address is required'
+                      ? 'Address length is more than 1'
+                      : 'Address is required'
                       : ''
-                  }
+                    }
+                  </div>
+                  <label htmlFor="address">Address</label>
                 </div>
-                <label htmlFor="address">Address</label>
-              </div>
-              <div className="form-floating">
-                <Controller
-                  name="city"
-                  control={control}
-                  defaultValue=""
-                  rules={{
-                    required: true,
-                    minLength: 2,
-                  }}
-                  render={({ field }) => (
-                    <input 
-                      type="text" 
-                      className={`form-control ${errors.city ? 'is-invalid' : ''}`}
-                      id="city" 
-                      placeholder="City" 
-                      {...field}
-                    />
-                  )}
-                />
-                <div className="invalid-feedback">
-                  {
-                    errors.city
+                <div className="form-floating">
+                  <Controller
+                    name="city"
+                    control={control}
+                    defaultValue=""
+                    rules={{
+                      required: true,
+                      minLength: 2,
+                    }}
+                    render={({ field }) => (
+                      <input 
+                        type="text" 
+                        className={`form-control ${errors.city ? 'is-invalid' : ''}`}
+                        id="city" 
+                        placeholder="City" 
+                        {...field}
+                      />
+                    )}
+                  />
+                  <div className="invalid-feedback">
+                    {
+                      errors.city
                       ? errors.city.type === 'minLength'
-                        ? 'City length is more than 1'
-                        : 'City is required'
+                      ? 'City length is more than 1'
+                      : 'City is required'
                       : ''
-                  }
+                    }
+                  </div>
+                  <label htmlFor="city">City</label>
                 </div>
-                <label htmlFor="city">City</label>
-              </div>
-              <div className="form-floating">
-              <Controller
-                name="state"
-                control={control}
-                rules={{
-                  required: true,
-                }}
-                render={({ field }) => (
-                  <select 
-                    defaultValue='DEFAULT'
-                    className={`form-select ${errors.state ? 'is-invalid' : ''}`} 
-                    onChange={(e) => setStates(e.target.value)}
-                    value={states}
-                    {...field}
-                  >
-                    <option disabled value="DEFAULT">Select a State</option>
-                    {stateOption.map((state) => (
-                      <option key={state.value} value={state.value}>{state.label}</option>
-                    ))}
-                  </select>
-                )}
-                />
-
-                <div className="invalid-feedback">
-                  {
-                    errors.state
-                        ? 'State is required'
+                <div className="form-floating">
+                  <Controller
+                    name="state"
+                    control={control}
+                    rules={{
+                      required: true,
+                    }}
+                    render={({ field }) => (
+                      <select 
+                        defaultValue='DEFAULT'
+                        className={`form-select ${errors.state ? 'is-invalid' : ''}`} 
+                        onChange={(e) => setStates(e.target.value)}
+                        value={states}
+                        {...field}
+                      >
+                        <option disabled value="DEFAULT">Select a State</option>
+                        {stateOption.map((state) => (
+                          <option key={state.value} value={state.value}>{state.label}</option>
+                        ))}
+                      </select>
+                    )}
+                  />
+                  <div className="invalid-feedback">
+                    {
+                      errors.state
+                      ? 'State is required'
+                      : ''
+                    }
+                  </div>
+                </div>
+                <div className="form-floating">
+                  <Controller
+                    name="zipCode"
+                    control={control}
+                    defaultValue=""
+                    rules={{
+                      required: true,
+                      minLength: 2,
+                    }}
+                    render={({ field }) => (
+                      <input 
+                        type="text" 
+                        className={`form-control ${errors.zipCode ? 'is-invalid' : ''}`}
+                        id="zipCode" 
+                        placeholder="Zip Code" 
+                        {...field}
+                      />
+                    )}
+                  />
+                  <div className="invalid-feedback">
+                    {
+                      errors.zipCode
+                        ? errors.zipCode.type === 'minLength'
+                          ? 'Zip Code length is more than 1'
+                          : 'Zip Code is required'
                         : ''
-                  }
+                    }
+                  </div>
+                  <label htmlFor="address">Zip Code</label>
                 </div>
-              </div>
-              <div className="form-floating">
-                <Controller
-                  name="zipCode"
-                  control={control}
-                  defaultValue=""
-                  rules={{
-                    required: true,
-                    minLength: 2,
-                  }}
-                  render={({ field }) => (
-                    <input 
-                      type="text" 
-                      className={`form-control ${errors.zipCode ? 'is-invalid' : ''}`}
-                      id="zipCode" 
-                      placeholder="Zip Code" 
-                      {...field}
-                    />
-                  )}
-                />
-                <div className="invalid-feedback">
-                  {
-                    errors.zipCode
-                      ? errors.zipCode.type === 'minLength'
-                        ? 'Zip Code length is more than 1'
-                        : 'Zip Code is required'
-                      : ''
-                  }
-                </div>
-                <label htmlFor="address">Zip Code</label>
-              </div>
-              <button className="w-100 btn btn-lg btn-outline-primary light" type="submit">
-                Continue
-              </button>
-            </form>
-          </div>
+                <button className="w-100 btn btn-lg btn-outline-primary light" type="submit">
+                  Continue
+                </button>
+              </form>
             </div>
+          </div>
         </main>
       </div>
     </Layout>

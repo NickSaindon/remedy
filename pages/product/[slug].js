@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Layout from '../components/Layout';
 import { useState, useContext, useEffect } from 'react';
 import { Store } from '../../utils/Store';
 import Link from 'next/link'
@@ -40,107 +41,109 @@ const ProductDetails = (props) => {
   }
 
   return (
-    <div className="details-container">
-      <section>
-        <div className="container-xxl">
-          <div className="row gy-5">
-            <div className="col p-3">
-              <Link href="/products" passHref>
-                <button type="button" className="btn btn-link"><i className="bi bi-arrow-left"></i> back to products</button>
-              </Link>
-            </div>
-          </div>
-          <div className="row img-row">
-            <div className="col-lg-1 col-md-9 col-sm-12 thumbnail-images">
-              <div className="thumbnails">
-                <Image 
-                  className="small" 
-                  src={product.imageOne} 
-                  alt="thumbnail"
-                  onClick={() => setSelectedImg(product.imageOne)}
-                  width={200}
-                  height={200}
-                />
-              </div>
-              <div className="thumbnails">
-                <Image 
-                  className="small" 
-                  src={product.imageTwo} 
-                  alt="thumbnail"
-                  onClick={() => setSelectedImg(product.imageTwo)}
-                  width={200}
-                  height={200}
-                />
-              </div>
-              <div className="thumbnails">
-                <Image 
-                  className="small" 
-                  src={product.imageThree} 
-                  alt="thumbnail"
-                  onClick={() => setSelectedImg(product.imageThree)}
-                  width={200}
-                  height={200}
-                />
-              </div>
-              <div className="thumbnails">
-                <Image 
-                  className="small" 
-                  src={product.imageFour} 
-                  alt="thumbnail"
-                  onClick={() => setSelectedImg(product.imageFour)}
-                  width={200}
-                  height={200}
-                />
+    <Layout>
+      <div className="details-container">
+        <section>
+          <div className="container-xxl">
+            <div className="row gy-5">
+              <div className="col p-3">
+                <Link href="/products" passHref>
+                  <button type="button" className="btn btn-link"><i className="bi bi-arrow-left"></i> back to products</button>
+                </Link>
               </div>
             </div>
-            <div className="col-lg-5 col-md-12 main-img">
-              <Image 
-                src={ selectedImg === "" ? product.imageOne : selectedImg } 
-                className="d-block w-100" 
-                width={640} 
-                height={640} 
-                alt={product.name} 
-              />
-            </div>
-            <div className="col-lg-6 col-md-12 col-sm-12">
-              <div className="row">
-                <div className="col-lg-7 col-md-6 col-sm-12">
-                  <h2 >{product.name} - {product.color}</h2>
-                  <h5>Description</h5>
-                  <p>{product.description}</p>
-                  <h5>Benefits</h5>
-                  <p>{product.benefits}</p>
+            <div className="row img-row">
+              <div className="col-lg-1 col-md-9 col-sm-12 thumbnail-images">
+                <div className="thumbnails">
+                  <Image 
+                    className="small" 
+                    src={product.imageOne} 
+                    alt="thumbnail"
+                    onClick={() => setSelectedImg(product.imageOne)}
+                    width={200}
+                    height={200}
+                  />
                 </div>
-                <div className="col-lg-5 col-md-6 col-sm-12">
-                  <div className="card">
-                    <div className="card-body">
-                      <div className="row">
-                        <div className="col-12">
-                          <ul className="text-muted">
-                            <li>Add the product to cart and select your quantity in the cart.</li>
-                            <li>Prices will change in accordance to the price list.</li>
-                          </ul>
-                        </div>
+                <div className="thumbnails">
+                  <Image 
+                    className="small" 
+                    src={product.imageTwo} 
+                    alt="thumbnail"
+                    onClick={() => setSelectedImg(product.imageTwo)}
+                    width={200}
+                    height={200}
+                  />
+                </div>
+                <div className="thumbnails">
+                  <Image 
+                    className="small" 
+                    src={product.imageThree} 
+                    alt="thumbnail"
+                    onClick={() => setSelectedImg(product.imageThree)}
+                    width={200}
+                    height={200}
+                  />
+                </div>
+                <div className="thumbnails">
+                  <Image 
+                    className="small" 
+                    src={product.imageFour} 
+                    alt="thumbnail"
+                    onClick={() => setSelectedImg(product.imageFour)}
+                    width={200}
+                    height={200}
+                  />
+                </div>
+              </div>
+              <div className="col-lg-5 col-md-12 main-img">
+                <Image 
+                  src={ selectedImg === "" ? product.imageOne : selectedImg } 
+                  className="d-block w-100" 
+                  width={640} 
+                  height={640} 
+                  alt={product.name} 
+                />
+              </div>
+              <div className="col-lg-6 col-md-12 col-sm-12">
+                <div className="row">
+                  <div className="col-lg-7 col-md-6 col-sm-12">
+                    <h2 >{product.name} - {product.color}</h2>
+                    <h5>Description</h5>
+                    <p>{product.description}</p>
+                    <h5>Benefits</h5>
+                    <p>{product.benefits}</p>
+                  </div>
+                  <div className="col-lg-5 col-md-6 col-sm-12">
+                    <div className="card">
+                      <div className="card-body">
+                        <div className="row">
+                          <div className="col-12">
+                            <ul className="text-muted">
+                              <li>Add the product to cart and select your quantity in the cart.</li>
+                              <li>Prices will change in accordance to the price list.</li>
+                            </ul>
+                          </div>
 
+                        </div>
+                        <div className="d-grid gap-2">
+                          <button 
+                            className="w-100 btn btn-lg btn-outline-primary light" 
+                            type="button"
+                            onClick={addToCartHandler}
+                          >
+                            Add To Cart
+                          </button>
+                        </div>                  
                       </div>
-                      <div className="d-grid gap-2">
-                        <button 
-                          className="w-100 btn btn-lg btn-outline-primary light" 
-                          type="button"
-                          onClick={addToCartHandler}
-                        >
-                          Add To Cart
-                        </button>
-                      </div>                  
                     </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
-      </section>
-    </div>
+        </section>
+      </div>
+    </Layout>
   );
 };
 

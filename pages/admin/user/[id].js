@@ -9,7 +9,7 @@ import { Controller, useForm } from 'react-hook-form';
 import SideNav from '../../../components/SideNav';
 import StateOptions from '../../../utils/stateOptions';
 import NumberFormat from 'react-number-format';
-
+import { ToastContainer, toast, Slide } from "react-toastify";
 
 function reducer(state, action) {
   switch (action.type) {
@@ -91,7 +91,6 @@ const UserEdit = ({ params }) => {
   }, []);
   
   const submitHandler = async ({ name, email, phone, companyName, address, city, state, zipCode }) => {
-  //   closeSnackbar();
     try {
       dispatch({ type: 'UPDATE_REQUEST' });
       await axios.put(
@@ -111,17 +110,29 @@ const UserEdit = ({ params }) => {
         { headers: { authorization: `Bearer ${userInfo.token}` } }
       );
       dispatch({ type: 'UPDATE_SUCCESS' });
-      // TODO: add success message
+      toast.success("User updated successfully", {
+        theme: "colored"
+      });
       router.push('/admin/users');
     } catch (err) {
       dispatch({ type: 'UPDATE_FAIL', payload: getError(err) });
-      // TODO: add error message
+      toast.error(getError(err), {
+        theme: "colored"
+      });
     }
   };
 
   return (
-    <Layout>
+    <Layout title={`Edit User ${userId}`}>
       <div className="user-edit-container">
+        <ToastContainer 
+          position="top-center" 
+          draggable={false} 
+          transition={Slide} 
+          autoClose={3000}
+          hideProgressBar={true}
+          className="toast-alert"
+        />
         <div className="container-fluid">
           <div className="row">
             <div className="col-lg-2 col-md-12">

@@ -10,6 +10,7 @@ import Cookies from 'js-cookie';
 import { Controller, useForm } from 'react-hook-form';
 import { getError } from '../utils/error';
 import NumberFormat from "react-number-format";
+import { ToastContainer, toast, Slide } from "react-toastify";
 
 const Register = () => {
   const {
@@ -33,6 +34,9 @@ const Register = () => {
   const submitHandler = async ({ name, email, phone, companyName, address, city, state, zipCode, password, confirmPassword }) => {
     if (password !== confirmPassword) {
       // TODO: error message that passwords don't match
+      toast.error("Passwords don't match", {
+        theme: "colored"
+      });
       return;
     }
     try {
@@ -51,14 +55,23 @@ const Register = () => {
       Cookies.set('userInfo', data);
       router.push(redirect || '/');
     } catch (err) {
-      dispatch({ type: 'USER_LOGIN_FAIL', payload: getError(err) })    
+      toast.error(getError(err), {
+        theme: "colored"
+      });   
     }
   };
-
 
   return (
     <Layout>
       <div className="register-container text-center">
+        <ToastContainer 
+          position="top-center" 
+          draggable={false} 
+          transition={Slide} 
+          autoClose={5000}
+          hideProgressBar={true}
+          className="toast-alert"
+        />
         <main className="form-register">
           <div className="row justify-content-md-center">
             <form onSubmit={handleSubmit(submitHandler)} className="col-lg-4 col-md-12 col-sm-12">

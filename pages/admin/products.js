@@ -7,6 +7,7 @@ import Link from 'next/link'
 import SideNav from '../../components/SideNav';
 import { getError } from '../../utils/error';
 import { Store } from '../../utils/Store';
+import { ToastContainer, toast, Slide } from "react-toastify";
 
 function reducer(state, action) {
   switch (action.type) {
@@ -85,11 +86,15 @@ const AdminProducts = () => {
         }
       );
       dispatch({ type: 'CREATE_SUCCESS' });
-      // enqueueSnackbar('Product created successfully', { variant: 'success' });
+      toast.success("Product created successfully", {
+        theme: "colored"
+      });
       router.push(`/admin/product/${data.product._id}`);
     } catch (err) {
       dispatch({ type: 'CREATE_FAIL' });
-      // enqueueSnackbar(getError(err), { variant: 'error' });
+      toast.error(getError(err), {
+        theme: "colored"
+      });
     }
   };
 
@@ -103,16 +108,28 @@ const AdminProducts = () => {
         headers: { authorization: `Bearer ${userInfo.token}` },
       });
       dispatch({ type: 'DELETE_SUCCESS' });
-      // enqueueSnackbar('Product deleted successfully', { variant: 'success' });
+      toast.success("Product deleted successfully", {
+        theme: "colored"
+      });
     } catch (err) {
       dispatch({ type: 'DELETE_FAIL' });
-      // enqueueSnackbar(getError(err), { variant: 'error' });
+      toast.error(getError(err), {
+        theme: "colored"
+      });
     }
   };
 
   return (
-    <Layout>
+    <Layout title="Products">
       <div className="users-container">
+        <ToastContainer 
+          position="top-center" 
+          draggable={false} 
+          transition={Slide} 
+          autoClose={3000}
+          hideProgressBar={true}
+          className="toast-alert"
+        />
         <div className="container-fluid">
           <div className="row">
             <div className="col-lg-2">

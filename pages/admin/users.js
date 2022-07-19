@@ -6,6 +6,7 @@ import { Store } from '../../utils/Store';
 import Link from 'next/link'
 import { getError } from '../../utils/error';
 import SideNav from '../../components/SideNav';
+import { ToastContainer, toast, Slide } from "react-toastify";
 
 function reducer(state, action) {
   switch (action.type) {
@@ -76,14 +77,28 @@ const AdminUsers = () => {
         headers: { authorization: `Bearer ${userInfo.token}` },
       });
       dispatch({ type: 'DELETE_SUCCESS' });
+      toast.success("User deleted successfully", {
+        theme: "colored"
+      });
     } catch (err) {
       dispatch({ type: 'DELETE_FAIL' });
+      toast.error(getError(err), {
+        theme: "colored"
+      });
     }
   };
 
   return (
-    <Layout>
+    <Layout title="Users">
       <div className="users-container">
+        <ToastContainer 
+          position="top-center" 
+          draggable={false} 
+          transition={Slide} 
+          autoClose={3000}
+          hideProgressBar={true}
+          className="toast-alert"
+        />
         <div className="container-fluid">
           <div className="row">
             <div className="col-lg-2 col-md-12">

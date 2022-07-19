@@ -52,7 +52,7 @@ const AdminOrders = () => {
   }, []);
 
   return (
-    <Layout>
+    <Layout title="Orders">
       <div className="users-container">
         <div className="container-fluid">
           <div className="row">

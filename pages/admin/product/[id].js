@@ -7,36 +7,37 @@ import { getError } from '../../../utils/error';
 import { Store } from '../../../utils/Store';
 import { Controller, useForm } from 'react-hook-form';
 import SideNav from '../../../components/SideNav';
+import { ToastContainer, toast, Slide } from "react-toastify";
 
 function reducer(state, action) {
-    switch (action.type) {
-      case 'FETCH_REQUEST':
-        return { ...state, loading: true, error: '' };
-      case 'FETCH_SUCCESS':
-        return { ...state, loading: false, error: '' };
-      case 'FETCH_FAIL':
-        return { ...state, loading: false, error: action.payload };
-      case 'UPDATE_REQUEST':
-        return { ...state, loadingUpdate: true, errorUpdate: '' };
-      case 'UPDATE_SUCCESS':
-        return { ...state, loadingUpdate: false, errorUpdate: '' };
-      case 'UPDATE_FAIL':
-        return { ...state, loadingUpdate: false, errorUpdate: action.payload };
-      case 'UPLOAD_REQUEST':
-        return { ...state, loadingUpload: true, errorUpload: '' };
-      case 'UPLOAD_SUCCESS':
-        return {
-          ...state,
-          loadingUpload: false,
-          errorUpload: '',
-        };
-      case 'UPLOAD_FAIL':
-        return { ...state, loadingUpload: false, errorUpload: action.payload };
-  
-      default:
-        return state;
-    }
+  switch (action.type) {
+    case 'FETCH_REQUEST':
+      return { ...state, loading: true, error: '' };
+    case 'FETCH_SUCCESS':
+      return { ...state, loading: false, error: '' };
+    case 'FETCH_FAIL':
+      return { ...state, loading: false, error: action.payload };
+    case 'UPDATE_REQUEST':
+      return { ...state, loadingUpdate: true, errorUpdate: '' };
+    case 'UPDATE_SUCCESS':
+      return { ...state, loadingUpdate: false, errorUpdate: '' };
+    case 'UPDATE_FAIL':
+      return { ...state, loadingUpdate: false, errorUpdate: action.payload };
+    case 'UPLOAD_REQUEST':
+      return { ...state, loadingUpload: true, errorUpload: '' };
+    case 'UPLOAD_SUCCESS':
+      return {
+        ...state,
+        loadingUpload: false,
+        errorUpload: '',
+      };
+    case 'UPLOAD_FAIL':
+      return { ...state, loadingUpload: false, errorUpload: action.payload };
+
+    default:
+      return state;
   }
+}
 
 const ProductEdit = ({ params }) => {
   const productId = params.id;
@@ -56,34 +57,34 @@ const ProductEdit = ({ params }) => {
   const { userInfo } = state;
 
   useEffect(() => {
-      if (!userInfo) {
-        return router.push('/login');
-      } else {
-        const fetchData = async () => {
-          try {
-            dispatch({ type: 'FETCH_REQUEST' });
-            const { data } = await axios.get(`/api/admin/products/${productId}`, {
-              headers: { authorization: `Bearer ${userInfo.token}` },
-            });
-            dispatch({ type: 'FETCH_SUCCESS' });
-            setValue('name', data.name);
-            setValue('slug', data.slug);
-            setValue('color', data.color);
-            setValue('price', data.price);
-            setValue('imageOne', data.imageOne);
-            setValue('imageTwo', data.imageTwo);
-            setValue('imageThree', data.imageThree);
-            setValue('imageFour', data.imageFour);
-            setValue('countInTons', data.countInTons);
-            setValue('description', data.description);
-            setValue('benefits', data.benefits);
-          } catch (err) {
-            dispatch({ type: 'FETCH_FAIL', payload: getError(err) });
-          }
-        };
+    if (!userInfo) {
+      return router.push('/login');
+    } else {
+      const fetchData = async () => {
+        try {
+          dispatch({ type: 'FETCH_REQUEST' });
+          const { data } = await axios.get(`/api/admin/products/${productId}`, {
+            headers: { authorization: `Bearer ${userInfo.token}` },
+          });
+          dispatch({ type: 'FETCH_SUCCESS' });
+          setValue('name', data.name);
+          setValue('slug', data.slug);
+          setValue('color', data.color);
+          setValue('price', data.price);
+          setValue('imageOne', data.imageOne);
+          setValue('imageTwo', data.imageTwo);
+          setValue('imageThree', data.imageThree);
+          setValue('imageFour', data.imageFour);
+          setValue('countInTons', data.countInTons);
+          setValue('description', data.description);
+          setValue('benefits', data.benefits);
+        } catch (err) {
+          dispatch({ type: 'FETCH_FAIL', payload: getError(err) });
+        }
+      };
         fetchData();
-      }
-    }, []);
+    }
+  }, []);
 
   const uploadHandler = async (e, imageField = 'imageOne') => {
       const file = e.target.files[0];
@@ -101,12 +102,16 @@ const ProductEdit = ({ params }) => {
         setValue(imageField, data.secure_url);
         
         alert('File uploaded successfully');
-        // enqueueSnackbar('File uploaded successfully', { variant: 'success' });
+        toast.success("File uploaded successfully", {
+          theme: "colored"
+        });
       } catch (err) {
         dispatch({ type: 'UPLOAD_FAIL', payload: getError(err) });
 
         alert('File uploaded Error');
-        // enqueueSnackbar(getError(err), { variant: 'error' });
+        toast.error(getError(err), {
+          theme: "colored"
+        });
       }
     };
     
@@ -123,37 +128,49 @@ const ProductEdit = ({ params }) => {
       description,
       benefits
     }) => {
-      try {
-        dispatch({ type: 'UPDATE_REQUEST' });
-        await axios.put(
-          `/api/admin/products/${productId}`,
-          {
-            name,
-            slug,
-            color,
-            price,
-            imageOne,
-            imageTwo,
-            imageThree,
-            imageFour,              
-            countInTons,
-            description,
-            benefits
-          },
-          { headers: { authorization: `Bearer ${userInfo.token}` } }
-        );
-        dispatch({ type: 'UPDATE_SUCCESS' });
-      //   enqueueSnackbar('Product updated successfully', { variant: 'success' });
-        router.push('/admin/products');
-      } catch (err) {
-        dispatch({ type: 'UPDATE_FAIL', payload: getError(err) });
-      //   enqueueSnackbar(getError(err), { variant: 'error' });
-      }
-    };
+    try {
+      dispatch({ type: 'UPDATE_REQUEST' });
+      await axios.put(
+      `/api/admin/products/${productId}`,
+        {
+          name,
+          slug,
+          color,
+          price,
+          imageOne,
+          imageTwo,
+          imageThree,
+          imageFour,              
+          countInTons,
+          description,
+          benefits
+        },
+        { headers: { authorization: `Bearer ${userInfo.token}` } }
+      );
+      dispatch({ type: 'UPDATE_SUCCESS' });
+      toast.success("Product updated successfully", {
+        theme: "colored"
+      });
+      router.push('/admin/products');
+    } catch (err) {
+      dispatch({ type: 'UPDATE_FAIL', payload: getError(err) });
+      toast.error(getError(err), {
+        theme: "colored"
+      });
+    }
+  };
 
   return (
-    <Layout>
+    <Layout title={`Edit Product ${productId}`}>
       <div className="product-edit-container">
+        <ToastContainer 
+          position="top-center" 
+          draggable={false} 
+          transition={Slide} 
+          autoClose={3000}
+          hideProgressBar={true}
+          className="toast-alert"
+        />
         <div className="container-fluid">
           <div className="row">
             <div className="col-lg-3">
