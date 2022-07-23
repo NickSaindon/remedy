@@ -1,5 +1,7 @@
 {
   "env": {"browser": true,"node":true, "es6": true},
   "extends": ["eslint:recommended","next", "next/core-web-vitals"],
-  "no-anonymous-default-export": [2, {"allowArrowFunction": true}]
+  "no-anonymous-default-export": ["error", {
+    "allowArrowFunction": true
+  }]
 }
