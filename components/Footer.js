@@ -16,38 +16,31 @@ const Footer = () => {
             <div id="social-media">
               <ul>
                 <li>
-                  <Link href="https://www.facebook.com/itntcreativedesigns/" passHref>
+                  <Link href="https://www.facebook.com/Remedy-Exports-105808932212368" passHref>
                     <a target="_blank" rel="noopener noreferrer">
                       <i className="bi bi-facebook" />
                     </a>
                   </Link>
                 </li>
                 <li>
-                  <Link href="https://plus.google.com/100100969463685035187/" passHref>
+                  <Link href="https://www.instagram.com/remedy_co.ltd/" passHref>
                     <a target="_black" rel="noopener noreferrer">
                       <i className="bi bi-instagram" />
                     </a>
                   </Link>
                 </li>
                 <li>
-                  <Link href="https://twitter.com/ItntCreative/" passHref>
+                  <Link href="https://twitter.com/RemedyExports" passHref>
                     <a target="_black" rel="noopener noreferrer">
                       <i className="bi bi-twitter" />
                     </a> 
-                  </Link>
-                </li>
-                <li>
-                  <Link href="https://www.youtube.com/channel/UC_CiUOoh6v20u--Ncrdq0xA/" passHref>
-                    <a target="_black" rel="noopener noreferrer">
-                      <i className="bi bi-youtube" />
-                    </a>
                   </Link>
                 </li>
               </ul>
             </div>
             <div id="contact">
               <ul>
-                <li>remedy@gmail.com</li>
+                <li>remedyexportsllc@gmail.com</li>
                 <li>404.663.9352</li>
               </ul>
             </div>

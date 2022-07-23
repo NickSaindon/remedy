@@ -1,9 +1,9 @@
 import { useEffect, useContext, useState } from 'react';
 import Layout from '../components/Layout';
-import CheckoutWizard from '../components/CheckoutWizard';
 import { useRouter } from 'next/router';
 import Cookies from 'js-cookie';
 import { Store } from '../utils/Store';
+import { ToastContainer, toast, Slide } from "react-toastify";
 
 const Payment = () => {
   const router = useRouter();
@@ -24,10 +24,11 @@ const Payment = () => {
   }, []);
 
   const submitHandler = (e) => {
-  //   closeSnackbar();
     e.preventDefault();
     if (!paymentMethod) {
-      // enqueueSnackbar('Payment method is required', { variant: 'error' });
+      toast.error("Payment method is required", {
+        theme: "colored"
+      });
     } else {
       dispatch({ type: 'SAVE_PAYMENT_METHOD', payload: paymentMethod });
       Cookies.set('paymentMethod', paymentMethod);
@@ -38,9 +39,14 @@ const Payment = () => {
   return (
     <Layout>
       <div className="payment-container">
-        {userInfo && userInfo.isVendor === true &&
-          <CheckoutWizard />
-        }
+        <ToastContainer 
+          position="top-center" 
+          draggable={false} 
+          transition={Slide} 
+          autoClose={3000}
+          hideProgressBar={true}
+          className="toast-alert"
+        />
         <div className="container">
           <div className="row justify-content-md-center">
             <div className="col-md-8">

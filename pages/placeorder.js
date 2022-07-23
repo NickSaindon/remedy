@@ -6,28 +6,26 @@ import Link from 'next/link';
 import Image from 'next/image';
 import axios from 'axios';
 import { useRouter } from 'next/router';
-import CheckoutWizard from '../components/CheckoutWizard';
-// import { getError } from '../utils/error';
+import { getError } from '../utils/error';
 import Cookies from 'js-cookie';
+import { ToastContainer, toast, Slide } from "react-toastify";
+
 
 const PlaceOrder = () => {
   const router = useRouter();
   const { state, dispatch } = useContext(Store);
   const {
     userInfo,
-    cart: { cartItems, shippingAddress, paymentMethod },
+    cart: { cartItems, shippingAddress },
   } = state;
   const round2 = (num) => Math.round(num * 100 + Number.EPSILON) / 100; // 123.456 => 123.46
-  const itemsPrice = round2(cartItems.reduce((a, c) => a + c.quantity * c.tierPrice * 1000, 0));
-  const shippingPrice = itemsPrice > 200 ? 0 : 15;
+  const itemsPrice = round2(cartItems.reduce((a, c) => a + c.quantity * c.price * 1000, 0));
+  const shippingPrice = itemsPrice >= 120000 ? 0 : 150;
   const taxPrice = round2(itemsPrice * 0.15);
-  const totalPrice = round2(itemsPrice + shippingPrice + taxPrice);
+  const totalPrice = round2(itemsPrice + shippingPrice);
 
   useEffect(() => {
     if (userInfo.isVendor) {
-      if (!paymentMethod) {
-        router.push('/payment');
-      }
       if (cartItems.length === 0) {
         router.push('/cart');
       }
@@ -37,7 +35,6 @@ const PlaceOrder = () => {
   const [loading, setLoading] = useState(false);
 
   const placeOrderHandler = async () => {
-    // closeSnackbar();
     try {
       setLoading(true);
       const { data } = await axios.post(
@@ -45,7 +42,6 @@ const PlaceOrder = () => {
         {
           orderItems: cartItems,
           shippingAddress,
-          paymentMethod,
           itemsPrice,
           shippingPrice,
           taxPrice,
@@ -63,16 +59,23 @@ const PlaceOrder = () => {
       router.push(`/order/${data._id}`);
     } catch (err) {
       setLoading(false);
-    //   enqueueSnackbar(getError(err), { variant: 'error' });
+      toast.error(getError(err), {
+        theme: "colored"
+      });
     }
   };
 
   return (
     <Layout>
       <div className="place-order-container">
-        {userInfo && userInfo.isVendor === true &&
-          <CheckoutWizard />
-        }
+        <ToastContainer 
+          position="top-center" 
+          draggable={false} 
+          transition={Slide} 
+          autoClose={3000}
+          hideProgressBar={true}
+          className="toast-alert"
+        />
         <div className="container">
           <h1 className="text-center">Place Order</h1>
           <div className="row">
@@ -81,16 +84,25 @@ const PlaceOrder = () => {
                 <div className="card-body">
                   <h2 className="card-title">Shipping Address</h2>
                   <p>
-                    {shippingAddress.fullName}, {shippingAddress.address},{' '}
-                    {shippingAddress.city}, {shippingAddress.zipCode}, {' '}
-                    {shippingAddress.state}
+                    <b>{shippingAddress.fullName}</b><br/>
+                    {shippingAddress.companyName}<br/>
+                    {shippingAddress.address}<br/>
+                    {shippingAddress.city},{' '}
+                    {shippingAddress.state},{' '}
+                    {shippingAddress.zipCode} 
                   </p>
                 </div>
               </div>
               <div className="card payment-card">
                 <div className="card-body">
-                  <h2 className="card-title">Payment Method</h2>
-                  <p>{paymentMethod}</p>
+                  <h2 className="card-title">Shipping Option</h2>
+                  <p>Shipment will be sent through <b>{shippingAddress.shipmentType}</b></p>
+                </div>
+              </div>
+              <div className="card payment-card">
+                <div className="card-body">
+                  <h2 className="card-title">Payment</h2>
+                  <p>A Wise transfer payment request will be to <b>{shippingAddress.email}</b></p>
                 </div>
               </div>
               <div className="card order-card">
@@ -103,7 +115,7 @@ const PlaceOrder = () => {
                         <th scope="col">Name</th>
                         <th scope="col">Quantity</th>
                         <th scope="col">Price</th>
-                        <th scope="col">Grind Type</th>
+                        <th scope="col">Process Type</th>
                       </tr>
                     </thead>
                     <tbody>
@@ -116,8 +128,8 @@ const PlaceOrder = () => {
                           </td>
                           <td className="align-middle">{item.name}<br />{item.color}</td>
                           <td className="align-middle">{item.quantity}t</td>
-                          <td className="align-middle">${item.tierPrice}</td>
-                          <td className="align-middle">{item.grindType}</td>
+                          <td className="align-middle">${item.price}</td>
+                          <td className="align-middle">{item.processType}</td>
                         </tr>
                       ))}
                     </tbody>
@@ -132,10 +144,6 @@ const PlaceOrder = () => {
                     <div className="summary d-flex justify-content-between">
                         <h6>Items:</h6>
                         <span className="text-muted">${itemsPrice.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}</span>
-                    </div>
-                    <div className="summary d-flex justify-content-between">
-                        <h6>Tax:</h6>
-                        <span className="text-muted">${taxPrice.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}</span>
                     </div>
                     <div className=" summary d-flex justify-content-between">
                         <h6>Shipping:</h6>

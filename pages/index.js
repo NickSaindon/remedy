@@ -186,7 +186,7 @@ const Home = () => {
                   </div>
                   <div className="col-lg-6 header-right">
                     <div className="logo">
-                      <Image src="/images/remedy_logo.png" width={450} height={200} alt="..." />
+                      <Image src="/images/remedy_exports_logo.png" width={350} height={350} alt="..." />
                     </div>
                     <h1 className="typing-text text-center"></h1>
                   </div>

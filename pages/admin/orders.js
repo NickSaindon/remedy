@@ -64,7 +64,7 @@ const AdminOrders = () => {
                 <div className="card-body">
                   <div className="row">
                     <div className="col-md-12">
-                      <h1 className="card-title text-center">Order History</h1>
+                      <h1 className="card-title text-center">All Orders</h1>
                     </div>
                   </div>
                   <div className="product-list-table">
@@ -84,6 +84,7 @@ const AdminOrders = () => {
                             <th scope="col">USER</th>
                             <th scope="col">DATE</th>
                             <th scope="col">COMPANY</th>
+                            <th scope="col">PAID</th>
                             <th scope="col">DELIVERED</th>
                             <th scope="col">ACTION</th>
                           </tr>
@@ -94,11 +95,18 @@ const AdminOrders = () => {
                               <td>{order._id.substring(20, 24)}</td>
                               <td>{order.user ? order.user.name : 'DELETED USER'}</td>
 
-                              <td>{moment(order.createdAt).format('DD/MM/YYYY')}</td>
-                              <td>{order.companyName}</td>
+                              <td>{moment(order.createdAt).format('MM/DD/YYYY')}</td>
+                              <td>
+                                {order.shippingAddress.companyName}
+                                </td>
+                              <td>
+                                {order.isPaid
+                                  ? `paid at ${moment(order.paidAt).format('MM/DD/YYYY')}`
+                                  : 'not paid'}
+                              </td>
                               <td>
                                 {order.isDelivered
-                                  ? `delivered at ${order.deliveredAt}`
+                                  ? `delivered at ${moment(order.deliveredAt).format('MM/DD/YYYY')}`
                                   : 'not delivered'}
                               </td>
                               <td className="table-actions">

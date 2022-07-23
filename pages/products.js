@@ -22,9 +22,9 @@ const Products = (props) => {
   const addToCartHandler = async (product) => {
     const existItem = state.cart.cartItems.find((x) => x._id === product._id);
     const quantity = existItem ? existItem.quantity + 1 : 1;
-    const grindType = 'nano';
+    const processType = 'nano';
 
-    dispatch({ type: 'CART_ADD_ITEM', payload: { ...product, quantity, tierPrice, grindType } });
+    dispatch({ type: 'CART_ADD_ITEM', payload: { ...product, quantity, processType } });
   };
 
   return (
@@ -77,7 +77,9 @@ const Products = (props) => {
                         href={`/product/${product.slug}`} 
                         passHref
                       >
-                        <Image src={product.imageOne} className="d-block w-100" width={600} height={600} alt="..." />
+                        <a>
+                          <Image src={product.imageOne} className="d-block w-100" width={600} height={600} alt="..." />
+                        </a>
                       </Link>
                       <div className="card-body">
                         <h4 className="card-text">{product.name} - {product.color}</h4>

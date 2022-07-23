@@ -22,17 +22,9 @@ const AdminCreateOrder = (props) => {
     const addToCartHandler = async (product) => {
         const existItem = state.cart.cartItems.find((x) => x._id === product._id);
         const quantity = existItem ? existItem.quantity + 1 : 1;
-        const grindType = 'nano';
-        const tierPrice = quantity <= 19 ? (product.price
-          ) : quantity >= 20 && quantity <= 29 ? (
-            product.price - 3
-          ) : quantity >= 30 && quantity <= 69 ? (
-            product.price - 5
-          ) : (
-            product.price - 6
-          )
+        const processType = 'nano';
     
-        dispatch({ type: 'CART_ADD_ITEM', payload: { ...product, quantity, tierPrice, grindType } });
+        dispatch({ type: 'CART_ADD_ITEM', payload: { ...product, quantity, processType } });
       };
 
   return (

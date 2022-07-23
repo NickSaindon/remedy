@@ -212,8 +212,6 @@ main {
 
 // Navbar
 .navbar {
-  padding-top: 0.8rem;
-  padding-bottom: 0.8rem;
   background-color: white;
   .navbar-left {
     padding-left: 20px;
@@ -263,7 +261,7 @@ main {
       }
       .header-right {
         .logo {
-          padding-top: 275px;
+          padding-top: 240px;
           text-align: center;
         }
         .typing-text {
@@ -1089,7 +1087,7 @@ main {
 
 // Shipping
 .shipping-container {
-  padding: 70px 0;
+  padding: 80px 0;
   .form-shipping {
     width: 100%;
     padding: 15px;
@@ -1103,7 +1101,7 @@ main {
         border-bottom-left-radius: 0;
         border-bottom-right-radius: 0;
       }
-      &#address, &#city {
+      &#address, &#city, &#email, &#companyName {
         border-radius: 0;
       }
       &#zipCode{
@@ -1145,7 +1143,7 @@ main {
 
 // Place Order Page
 .place-order-container {
-  padding: 70px 0;
+  padding: 100px 0;
   .card {
     margin: 10px 0;
     h6 {
@@ -1313,7 +1311,7 @@ footer {
 #contact ul li {
   float: left;
   border-right: 1px solid white;
-  padding: 10px 15px 10px 35px;
+  padding: 10px 10px 10px 15px;
 }
 
 #contact ul li:last-child {
@@ -1351,6 +1349,10 @@ footer {
 
 // Mobile
 @media (max-width: 576px) {
+  // Navbar
+  .dropdown-menu {
+    border: none;
+  }
   // Home
   .home-container {
     .header-container {
@@ -1655,6 +1657,10 @@ footer {
 
 // Tablet
 @media (min-width: 577px) and (max-width: 992px) {
+  // Navbar
+  .dropdown-menu {
+    border: none;
+  }
   // Home
   .home-container {
     .header-container {
@@ -1681,7 +1687,7 @@ footer {
           position: absolute;
           color: white;
           .logo {
-            padding-top: 350px;
+            padding-top: 240px;
           }
         }
       }

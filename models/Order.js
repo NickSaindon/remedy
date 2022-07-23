@@ -9,18 +9,19 @@ const orderSchema = new mongoose.Schema(
         quantity: { type: Number, required: true },
         imageOne: { type: String, required: true },
         price: { type: Number, required: true },
-        tierPrice: { type: Number, required: true },
-        grindType: { type: String, required: true }
+        processType: { type: String, required: true }
       },
     ],
     shippingAddress: {
       fullName: { type: String, required: true },
+      email: { type: String, required: true },
+      shipmentType:  {type: String, required: true},
+      companyName: { type: String, required: true },
       address: { type: String, required: true },
       city: { type: String, required: true },
       state: { type: String, required: true },
       zipCode: { type: String, required: true },
     },
-    paymentMethod: { type: String, required: true },
     paymentResult: { id: String, status: String, email_address: String },
     itemsPrice: { type: Number, required: true },
     shippingPrice: { type: Number, required: true },
@@ -37,4 +38,5 @@ const orderSchema = new mongoose.Schema(
 );
 
 const Order = mongoose.models.Order || mongoose.model('Order', orderSchema);
+
 export default Order;

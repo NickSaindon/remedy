@@ -8,6 +8,7 @@ import axios from 'axios';
 import { useRouter } from 'next/router';
 import { getError } from '../../utils/error';
 import { PayPalButtons, usePayPalScriptReducer } from '@paypal/react-paypal-js';
+import moment from 'moment';
 import { ToastContainer, toast, Slide } from "react-toastify";
 
 function reducer(state, action) {
@@ -61,7 +62,6 @@ const Order = ({params}) => {
   });
   const {
     shippingAddress,
-    paymentMethod,
     orderItems,
     itemsPrice,
     taxPrice,
@@ -112,22 +112,7 @@ const Order = ({params}) => {
       if (successDeliver) {
         dispatch({ type: 'DELIVER_RESET' });
       }
-    } else if (paymentMethod === 'Paypal') {
-      const loadPaypalScript = async () => {
-        const { data: clientId } = await axios.get('/api/keys/paypal', {
-          headers: { authorization: `Bearer ${userInfo.token}` },
-        });
-        paypalDispatch({
-          type: 'resetOptions',
-          value: {
-            'client-id': clientId,
-            currency: 'USD',
-          },
-        });
-        paypalDispatch({ type: 'setLoadingStatus', value: 'pending' });
-      };
-      loadPaypalScript();
-    }
+    } 
   }, [order, successPay, successDeliver]);
   
   const createOrder = (data, actions) => {
@@ -144,28 +129,51 @@ const Order = ({params}) => {
       });
   }
 
-  const onApprove = (data, actions) => {
-    return actions.order.capture().then(async function (details) {
-      try {
-        dispatch({ type: 'PAY_REQUEST' });
-        const { data } = await axios.put(
-          `/api/orders/${order._id}/pay`,
-          details,
-          {
-            headers: { authorization: `Bearer ${userInfo.token}` },
-          }
-        );
-        dispatch({ type: 'PAY_SUCCESS', payload: data });
-        toast.error("Order is paid", {
-          theme: "colored"
-        });
-      } catch (err) {
-        dispatch({ type: 'PAY_FAIL', payload: getError(err) });
-        toast.error(getError(err), {
-          theme: "colored"
-        });
-      }
-    });
+  async function paidOrderHandler() {
+    try {
+      dispatch({ type: 'PAY_REQUEST' });
+      const { data } = await axios.put(
+        `/api/orders/${order._id}/pay`,
+        {},
+        {
+          headers: { authorization: `Bearer ${userInfo.token}` },
+        }
+      );
+      dispatch({ type: 'PAY_SUCCESS', payload: data });
+      toast.success("Order is paid", {
+        theme: "colored"
+      });
+    } catch (err) {
+      dispatch({ type: 'PAY_FAIL', payload: getError(err) });
+      toast.error(getError(err), {
+        theme: "colored"
+      });
+    }
+
+
+
+
+    // return actions.order.capture().then(async function (details) {
+    //   try {
+    //     dispatch({ type: 'PAY_REQUEST' });
+    //     const { data } = await axios.put(
+    //       `/api/orders/${order._id}/pay`,
+    //       details,
+    //       {
+    //         headers: { authorization: `Bearer ${userInfo.token}` },
+    //       }
+    //     );
+    //     dispatch({ type: 'PAY_SUCCESS', payload: data });
+    //     toast.error("Order is paid", {
+    //       theme: "colored"
+    //     });
+    //   } catch (err) {
+    //     dispatch({ type: 'PAY_FAIL', payload: getError(err) });
+    //     toast.error(getError(err), {
+    //       theme: "colored"
+    //     });
+    //   }
+    // });
   }
   
   // const onError = (err) => {
@@ -209,12 +217,30 @@ const Order = ({params}) => {
         />
         <div className="container">
           <h1 className="text-center">Order {orderId}</h1>
+          <div className="row gy-5">
+            {userInfo && userInfo.isAdmin === true ? (
+              <div className="col p-3">
+                <Link href="/admin/orders" passHref>
+                  <button type="button" className="btn btn-link"><i className="bi bi-arrow-left"></i> back to order history</button>
+                </Link>
+              </div>
+            ) : (
+              <div className="col p-3">
+                <Link href="/vendor/order-history" passHref>
+                  <button type="button" className="btn btn-link"><i className="bi bi-arrow-left"></i> back to order history</button>
+                </Link>
+              </div>
+            )}
+
+            </div>
           {loading ? (
             <div className="spinner-border text-primary" role="status">
               <span className="visually-hidden">Loading...</span>
             </div>
           ) : error ? (
-            <MessageBox variant="danger">{error}</MessageBox>
+            toast.error(error, {
+              theme: "colored"
+            })
           ) : (
             <div className="row">
               <div className="col-lg-12">
@@ -222,25 +248,76 @@ const Order = ({params}) => {
                   <div className="card-body">
                     <h2 className="card-title">Shipping Address</h2>
                     <p>
-                      {shippingAddress.fullName}, {shippingAddress.address},{' '}
-                      {shippingAddress.city}, {shippingAddress.zipCode}, {' '}
-                      {shippingAddress.state}
+                      <b>{shippingAddress.fullName}</b><br/> 
+                      {shippingAddress.companyName}<br/>
+                      {shippingAddress.address}<br/>
+                      {shippingAddress.city}, {' '}
+                      {shippingAddress.state}, {' '}
+                      {shippingAddress.zipCode}                      
                     </p>
                     <p>
-                      Status:{' '}
+                      <b>Status:</b>{' '}
                       {isDelivered
-                        ? `delivered at ${deliveredAt}`
+                        ? `delivered at ${moment(deliveredAt).format('MM/DD/YYYY')}`
                         : 'not delivered'}
                     </p>
                   </div>
                 </div>
                 <div className="card payment-card">
                   <div className="card-body">
-                    <h2 className="card-title">Payment Method</h2>
-                    <p>{paymentMethod}</p>
+                    <h2 className="card-title">Delivery</h2>
                     <p>
-                        Status: {isPaid ? `paid at ${paidAt}` : 'not paid'}
+                      Shipment will be sent through <b>{shippingAddress.shipmentType}</b>
                     </p>
+                    <p>
+                      <b>Status:</b>{' '}
+                      {isDelivered
+                        ? `delivered at ${moment(deliveredAt).format('MM/DD/YYYY')}`
+                        : 'not delivered'}
+                    </p>
+                    {userInfo && userInfo.isAdmin === true && !order.isDelivered && (
+                      <div>
+                        {loadingDeliver && 
+                          <div class="spinner-border text-primary" role="status">
+                            <span class="visually-hidden">Loading...</span>
+                          </div>
+                        }
+                        <button 
+                          type="button" 
+                          class="btn btn-primary"
+                          onClick={deliverOrderHandler}
+                        >
+                          Delivered
+                        </button>
+                      </div>
+                    )}
+                  </div>
+                </div>
+                <div className="card payment-card">
+                  <div className="card-body">
+                    <h2 className="card-title">Payment</h2>
+                    <p>
+                      Wise transfer payment request was sent to <b>{shippingAddress.email}</b>
+                    </p>
+                    <p>
+                      <b>Status:</b> {isPaid ? `paid at ${moment(paidAt).format('MM/DD/YYYY')}` : 'not paid'}
+                    </p>
+                    {userInfo && userInfo.isAdmin === true && !order.isPaid && (
+                      <div>
+                        {loadingDeliver && 
+                          <div class="spinner-border text-primary" role="status">
+                            <span class="visually-hidden">Loading...</span>
+                          </div>
+                        }
+                        <button 
+                          type="button" 
+                          class="btn btn-primary"
+                          onClick={paidOrderHandler}
+                        >
+                          Paid
+                        </button>
+                      </div>
+                    )}
                   </div>
                 </div>
                 <div className="card order-card">
@@ -249,25 +326,23 @@ const Order = ({params}) => {
                     <table className="table">
                       <thead>
                         <tr>
-                            <th scope="col">Image</th>
-                            <th scope="col">Name</th>
-                            <th scope="col">Quantity</th>
-                            <th scope="col">Price</th>
-                            <th scope="col">Grind Type</th>
+                          <th scope="col">Image</th>
+                          <th scope="col">Name</th>
+                          <th scope="col">Quantity</th>
+                          <th scope="col">Process Type</th>
                         </tr>
                       </thead>
                       <tbody>
                         {orderItems.map((item) => (
                           <tr key={item._id}>
-                                <td>
-                                <Link href={`/product/${item.slug}`} passHref>
-                                    <Image src={item.imageOne} className="d-block w-100" width={50} height={50} alt="..." />
-                                </Link>
-                                </td>
-                                <td className="align-middle">{item.name}<br />{item.color}</td>
-                                <td className="align-middle">{item.quantity}t</td>
-                                <td className="align-middle">${item.tierPrice}</td>
-                                <td className="align-middle">{item.grindType}</td>
+                            <td>
+                              <Link href={`/product/${item.slug}`} passHref>
+                                <Image src={item.imageOne} className="d-block w-100" width={50} height={50} alt="..." />
+                              </Link>
+                            </td>
+                            <td className="align-middle">{item.name}<br />{item.color}</td>
+                            <td className="align-middle">{item.quantity}t</td>
+                            <td className="align-middle">{item.processType}</td>
                           </tr>
                         ))}
                       </tbody>

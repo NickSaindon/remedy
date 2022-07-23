@@ -24,7 +24,6 @@ function Navbar() {
     Cookies.remove('userInfo');
     Cookies.remove('cartItems');
     Cookies.remove('shippinhAddress');
-    Cookies.remove('paymentMethod');
     router.push('/');
   };
  
@@ -33,7 +32,7 @@ function Navbar() {
       <div className="container-fluid">
       <Link href="/" passHref>
         <div className="navbar-brand">
-          <Image src="/images/remedy_logo.png" width={65} height={28} alt="Computer and mobile devices"/>
+          <Image src="/images/remedy_exports_logo.png" width={45} height={45} alt="Computer and mobile devices"/>
         </div>
       </Link>
         <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor03" aria-controls="navbarColor03" aria-expanded="false" aria-label="Toggle navigation">
@@ -68,13 +67,13 @@ function Navbar() {
               </Link>
             </li>
             {userInfo && userInfo.isVendor === true &&
-            <li>
-              <Link href="/products" passHref>
-                <a className={router.asPath == "/products" ? "nav-link active" : "nav-link"}>
-                  Products
-                </a>
-              </Link>
-            </li>
+              <li>
+                <Link href="/products" passHref>
+                  <a className={router.asPath == "/products" ? "nav-link active" : "nav-link"}>
+                    Products
+                  </a>
+                </Link>
+              </li>
             }
           </ul>
           <div className="d-flex">

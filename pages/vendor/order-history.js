@@ -83,6 +83,7 @@ const OrderHistory = () => {
                             <th scope="col">ID</th>
                             <th scope="col">DATE</th>
                             <th scope="col">DELIVERED</th>
+                            <th scope="col">PAID</th>
                             <th scope="col">ACTION</th>
                           </tr>
                         </thead>
@@ -93,8 +94,11 @@ const OrderHistory = () => {
                               <td>{moment(order.createdAt).format('MM/DD/YYYY')}</td>
                               <td>
                                 {order.isDelivered
-                                  ? `delivered at ${order.deliveredAt}`
+                                  ? `delivered at ${moment(order.deliveredAt).format('MM/DD/YYYY')}`
                                   : 'not delivered'}
+                              </td>
+                              <td>
+                                Status: {order.isPaid ? `paid at ${moment(order.paidAt).format('MM/DD//YYYY')}` : 'not paid'}
                               </td>
                               <td className="table-actions">
                                 <Link href={`/order/${order._id}`} passHref>

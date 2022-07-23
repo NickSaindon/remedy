@@ -10,7 +10,7 @@ const Cart = () => {
   const { state, dispatch } = useContext(Store);
     const router = useRouter();
     const { userInfo, cart: { cartItems }} = state;
-    const grind = [
+    const process = [
       {value: 'fine', text: 'Fine'},
       {value: 'nano', text: 'Nano'},
     ];
@@ -21,12 +21,12 @@ const Cart = () => {
         }
     }, []);
 
-    const updateGrindHandler = async (item, grindType) => {
+    const updateProcessHandler = async (item, processType) => {
       dispatch({ 
         type: 'CART_ADD_ITEM', 
         payload: { 
           ...item, 
-          grindType,
+          processType,
         } 
       });
     };
@@ -36,15 +36,7 @@ const Cart = () => {
         type: 'CART_ADD_ITEM', 
         payload: { 
           ...item, 
-          quantity, 
-          tierPrice: quantity <= 19 ? (item.price
-            ) : quantity >= 20 && quantity <= 29 ? (
-              item.price - 3
-            ) : quantity >= 30 && quantity <= 69 ? (
-              item.price - 5
-            ) : (
-              item.price - 6
-            ),
+          quantity
         } 
       });
     };
@@ -102,15 +94,15 @@ const Cart = () => {
                     </select>
                   </div>
                   <div className="grind-select">
-                    <span>Grind Type</span>
+                    <span>Process Type</span>
                     <select 
                       className="form-select" 
-                      value={item.grindType}
+                      value={item.processType}
                       onChange={(e) =>
-                        updateGrindHandler(item, e.target.value)
+                        updateProcessHandler(item, e.target.value)
                       }
                     >
-                      {grind.map((state) => (
+                      {process.map((state) => (
                         <option key={state.value} value={state.value}>{state.text}</option>
                       ))}
                     </select>
