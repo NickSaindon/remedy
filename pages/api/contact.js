@@ -37,8 +37,8 @@ export default async (req, res) => {
         </head>
         <body leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" style="background: #e7e7e7; width: 100%; height: 100%; margin: 0; padding: 0;">
           <div id="mailsub">
-            <center className="wrapper" style="table-layout: fixed; -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; padding: 0; margin: 0 auto; width: 100%; max-width: 960px;">
-                  <div className="webkit">
+            <center class="wrapper" style="table-layout: fixed; -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; padding: 0; margin: 0 auto; width: 100%; max-width: 960px;">
+                  <div class="webkit">
                 <table cellpadding="0" cellspacing="0" border="0" bgcolor="#ffffff" style="padding: 0; margin: 0 auto; width: 100%; max-width: 960px;">
                   <tbody>
                     <tr>
@@ -97,12 +97,12 @@ export default async (req, res) => {
                             <tr><td colspan="3" height="85"></td></tr>
                           </tbody>
                         </table>
-                        <table id="icon__article" className="device" cellpadding="0" cellspacing="0" border="0" bgcolor="#ffffff" align="center" style="width: 100%; padding: 0; margin: 0; background-color: #ffffff">
+                        <table id="icon__article" class="device" cellpadding="0" cellspacing="0" border="0" bgcolor="#ffffff" align="center" style="width: 100%; padding: 0; margin: 0; background-color: #ffffff">
                           <tbody>								
                             <tr>
                               <td align="center">
                                 <div style="display: inline-block;">
-                                  <table width="240" align="left" cellpadding="0" cellspacing="0" border="0" style="padding: 0; margin: 0; mso-table-lspace:0pt; mso-table-rspace:0pt;"  className="article">
+                                  <table width="240" align="left" cellpadding="0" cellspacing="0" border="0" style="padding: 0; margin: 0; mso-table-lspace:0pt; mso-table-rspace:0pt;"  class="article">
                                   <tbody>
                                     <tr> <td colspan="3" height="40"></td> </tr>
                                     <tr>
@@ -127,7 +127,7 @@ export default async (req, res) => {
                                   </table>
                                 </div>
                                 <div style="display: inline-block; margin-left: -4px;">
-                                  <table width="240" align="left" cellpadding="0" cellspacing="0" border="0" style="padding: 0; margin: 0; mso-table-lspace:0pt; mso-table-rspace:0pt;" className="article">
+                                  <table width="240" align="left" cellpadding="0" cellspacing="0" border="0" style="padding: 0; margin: 0; mso-table-lspace:0pt; mso-table-rspace:0pt;" class="article">
                                   <tbody>
                                     <tr> <td colspan="3" height="40"></td> </tr>
                                     <tr>
@@ -152,7 +152,7 @@ export default async (req, res) => {
                                   </table>
                                 </div>
                                 <div style="display: inline-block; margin-left: -4px;">
-                                  <table width="240" align="left" cellpadding="0" cellspacing="0" border="0" style="padding: 0; margin: 0; mso-table-lspace:0pt; mso-table-rspace:0pt;" className="article">
+                                  <table width="240" align="left" cellpadding="0" cellspacing="0" border="0" style="padding: 0; margin: 0; mso-table-lspace:0pt; mso-table-rspace:0pt;" class="article">
                                   <tbody>
                                     <tr> <td colspan="3" height="40"></td> </tr>
                                     <tr>
@@ -181,12 +181,12 @@ export default async (req, res) => {
                             <tr> <td colspan="5" height="40"></td> </tr>
                           </tbody>
                         </table>						
-                        <table id="icon__article" className="device" cellpadding="0" cellspacing="0" border="0" bgcolor="#ffffff" align="center" style="width: 100%; padding: 0; margin: 0; background-color: #ffffff">
+                        <table id="icon__article" class="device" cellpadding="0" cellspacing="0" border="0" bgcolor="#ffffff" align="center" style="width: 100%; padding: 0; margin: 0; background-color: #ffffff">
                           <tbody>								
                             <tr>
                               <td align="center">
                                 <div style="display: inline-block;">
-                                  <table width="98%" align="center" cellpadding="0" cellspacing="0" border="0" style="padding: 0; margin: 0; mso-table-lspace:0pt; mso-table-rspace:0pt;"  className="article">
+                                  <table width="98%" align="center" cellpadding="0" cellspacing="0" border="0" style="padding: 0; margin: 0; mso-table-lspace:0pt; mso-table-rspace:0pt;"  class="article">
                                   <tbody>
                                     <tr> <td colspan="3" height="40"></td> </tr>
                                     <tr>
