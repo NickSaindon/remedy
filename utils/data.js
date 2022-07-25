@@ -37,9 +37,8 @@ const data = {
             imageTwo: '/images/maeng-da2.jpg',
             imageThree: '/images/maeng-da3.jpg',
             imageFour: '/images/maeng-da-powder.jpg',
-            price: 15.00,
+            price: 12,
             countInTons: 100,
-            isAvailable: true,
             description: 'This is about Maeng Da',
             benefits: 'These are the benefits to Yak Yai Maeng Da'
         },
@@ -51,9 +50,8 @@ const data = {
             imageTwo: '/images/maeng-da2.jpg',
             imageThree: '/images/maeng-da3.jpg',
             imageFour: '/images/maeng-da-powder.jpg',
-            price: 15.00,
+            price: 12,
             countInTons: 100,
-            isAvailable: true,
             description: 'This is about Maeng Da',
             benefits: 'These are the benefits to Hang Kang Maeng Da Green'
         },
@@ -65,7 +63,8 @@ const data = {
             imageTwo: '/images/maeng-da2.jpg',
             imageThree: '/images/maeng-da3.jpg',
             imageFour: '/images/maeng-da-powder.jpg',
-            isAvailable: true,
+            price: 12,
+            countInTons: 100,
             description: 'This is about Maeng Da',
             benefits: 'These are the benefits to Hang Kang Maeng Da White'
         },
@@ -77,7 +76,8 @@ const data = {
             imageTwo: '/images/gan-dang2.jpg',
             imageThree: '/images/gan-dang3.jpg',
             imageFour: '/images/gan-dang-powder.jpg',
-            isAvailable: true,
+            price: 12,
+            countInTons: 100,
             description: 'This is about Gan Kheaw',
             benefits: 'These are the benefits to Gan Kheaw'
         },
@@ -89,7 +89,8 @@ const data = {
             imageTwo: '/images/gan-dang2.jpg',
             imageThree: '/images/gan-dang3.jpg',
             imageFour: '/images/gan-dang-powder.jpg',
-            isAvailable: true,
+            price: 12,
+            countInTons: 100,
             description: 'This is about Gan Dang',
             benefits: 'These are the benefits to Gan Kheaw'
         },
@@ -101,7 +102,8 @@ const data = {
             imageTwo: '/images/tang-qua2.jpg',
             imageThree: '/images/tang-qua3.jpg',
             imageFour: '/images/tang-qua1.jpg',
-            isAvailable: true,
+            price: 12,
+            countInTons: 100,
             description: 'This is about Tang Qua',
             benefits: 'These are the benefits to Tang Qua'
         },
@@ -113,7 +115,8 @@ const data = {
             imageTwo: '/images/leon-tong2.jpg',
             imageThree: '/images/leon-tong1.jpg',
             imageFour: '/images/leon-tong2.jpg',
-            isAvailable: true,
+            price: 12,
+            countInTons: 100,
             description: 'This is about Leon Tong',
             benefits: 'These are the benefits to Leon Tong'
         }

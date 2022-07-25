@@ -72,7 +72,8 @@ const FAQ = () => {
                 </h2>
                 <div id="remedyCollapseThree" className="accordion-collapse collapse" aria-labelledby="remedyHeadingThree" data-bs-parent="#remedyQuestions">
                   <div className="accordion-body">
-                    
+                    Currently Remedy Expxorts will focus efforts on processing Kratom either by grinding into fine or nano powder.  However, this does not mean Remedy Exports can not produce 
+                    extracts, teas or other forms for vendors that are looking to produce a varity of products.
                   </div>
                 </div>
               </div>
@@ -84,19 +85,21 @@ const FAQ = () => {
                 </h2>
                 <div id="remedyCollapseFour" className="accordion-collapse collapse" aria-labelledby="remedyHeadingFour" data-bs-parent="#remedyQuestions">
                   <div className="accordion-body">
-                    <strong>This is the third items accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. Its also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+                    Remedy can either ship the Kratom by air or by ocean freight.  Depending on the size of the order shipping cost maybe included.
                   </div>
                 </div>
               </div>
               <div className="accordion-item">
                 <h2 className="accordion-header" id="remedyHeadingFive">
                   <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#remedyCollapseFive" aria-expanded="false" aria-controls="remedyCollapseFive">
-                    How can Remedy's Plantation Investment Program help vendors?
+                    How can Remedy Exports Plantation Investment Program help vendors?
                   </button>
                 </h2>
                 <div id="remedyCollapseFive" className="accordion-collapse collapse" aria-labelledby="remedyHeadingFive" data-bs-parent="#remedyQuestions">
                   <div className="accordion-body">
-                    <strong>This is the third items accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. Its also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+                    At Remedy Exports we know that supply chain is extremely important when it comes to a finite commodity.  We also know that if it is possible to control a companies own supply that it can be a huge
+                    advantage for a business and its growth.  This can increase supply while reducing cost every year.  This is beacuse as the trees grow, they will produce more leaves that 
+                    will increase the supply while reducing the reliance of the vendors business on having to buy supply from other plantations.
                   </div>
                 </div>
               </div>

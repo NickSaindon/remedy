@@ -81,7 +81,7 @@ const Contact = () => {
           <div className="row justify-content-md-center ">
             <form onSubmit={handleSubmit(onSubmitForm, phone, setPhone)} 
               className="col-lg-4 col-md-12 col-sm-12 text-center needs-validation" noValidate>
-              <Image src="/images/remedy_logo.png" width={150} height={65} alt=""/>
+              <Image src="/images/remedy_exports_logo.png" width={150} height={145} alt=""/>
                   <h1 className="h3 mb-3 fw-normal">Contact Us</h1>
                   <p>Have questions about Remedy then send us a message and we will get back to you.</p>
                   <div className="form-floating">

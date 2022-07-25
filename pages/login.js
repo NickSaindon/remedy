@@ -55,7 +55,7 @@ const Login = () => {
               className="toast-alert"
             />
             <form onSubmit={handleSubmit(submitHandler)} className="col-lg-4 col-md-12 col-sm-12 needs-validation" noValidate>
-              <Image src="/images/remedy_logo.png" width={150} height={65} alt=""/>
+              <Image src="/images/remedy_exports_logo.png" width={150} height={145} alt=""/>
               <h1 className="h3 mb-3 fw-normal">Please Signin</h1>
               <p>* If you don&apos;t have an account please click the register link below.</p>
               <div className="form-floating">

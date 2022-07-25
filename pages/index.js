@@ -204,15 +204,14 @@ const Home = () => {
                   <p>
                     Remedy is a company that Manufactures Kratom through many different processes for vendors to sell in the market.  Our goal is to ship 
                     quality Kratom that is safe from any metals, bacteria, and that is grown naturally without the useage of any non organic pesticides.
-                    Currently the only two countries that export Kratom are Indonesia and Thailand, and from our research and lab test Thai 
-                    Kratom is of a higher quality.  The word Kratom is actually a Thai word that means "hut" because of the shape of the tree and the word Maeng Da in 
-                    Thai means "Crawfish" which is used to describe the shape of the top of the leaf.  
+                    The word Kratom is actually a Thai word that means "Hut" because of the shape of the tree and the word Maeng Da in Thai means "Horseshoe Crab" which 
+                    is used to describe the shape of the top of the leaf.  
                     <br /><br />
                     Most of the world’s Kratom originates from Thailand. The humid air, 
                     and the acidic soil is rich in all the right nutrients making it the perfect place for the Kratom tree to grow.  This is also why Remedy offers to its vendors 
                     an opportunity of a lifetime with our <b>Plantation Investment Program</b>. This opportunity enables vendors to secure their own supply of Kratom tress that 
-                    we plant and harest solely for their company needs. Remedy is a company dedicated to mainting quiality and why we have chosen to work with AKA members who also have
-                    are committed to the furture of Kratom and all the people it can truly help. 
+                    we plant and harest solely for their company needs. Remedy is a company dedicated to mainting quiality which is why we have chosen to work with AKA members who are also
+                    committed to the furture of Kratom and all the people it can truly help. 
                   </p>
                   <Link href="/about" passHref>
                     <button type="button" className="btn btn-link">See Who We Are <i className="bi bi-arrow-right"></i></button>
@@ -298,7 +297,7 @@ const Home = () => {
                       <div className="col-lg-8">
                           <Image src="/images/paper-airplane.png" width={100} height={100} alt="..." />
                           <h2 className="text-center">Contact Us Today</h2>
-                          <p className="lead">
+                          <p>
                             Have more question?  Then don't hesitate to contact us today so we can answer those question in full, and tell you about some of our programs and
                             different products.  Things to know:   
                           </p>
