@@ -58,7 +58,7 @@ const About = () => {
 }, [])
 
   return (
-    <Layout>
+    <Layout title="About Page">
       <div className="about-container">
         <div className="page-header">
           <div className="container-fluid">
@@ -84,23 +84,23 @@ const About = () => {
             </div>
             <div>
               <p>
-                Remedy is an export business that specializes in the shipment of Thai Kratom to vendors in the US. It is owned and operated
+                Remedy is an export business that specializes in the shipment of Thai Kratom to clients in the US. It is owned and operated
                 by two American brothers.  One that lives in Thailand and one that lives in the United States. After much research this 
                 opportunity presented itself in the Kratom trees that grow in humid and tropical locations like the forest across Southeast 
                 Asia.
                 <br/><br/>  
                 Our goal is to ship quality Kratom that is safe from any metals, bacteria, and that is grown naturally without the useage of any pesticides.  
-                Remedy only looks to ship to vendors that are members of the AKA (American Kratom Association).  This is to maintain a realationsip 
-                that is based on trust in the quality of the product we ship.  Furthermore, we work with the vendors that are members of 
+                Remedy only looks to ship to clients that are members of the AKA (American Kratom Association).  This is to maintain a realationsip 
+                that is based on trust in the quality of the product we ship.  Furthermore, we work with the clients that are members of 
                 the AKA because they have committed to the AKA Good Manufacturing Practices program and we are commited to producing a higher quality product 
                 that is superior to others.
                 <br/><br/> 
-                Another goal of Remedy is to help meet the needs of all the vendors we work with.  We do this by doing the painstaking research of all the different 
-                processing methods and how we can get the full alkaloids and compounds from the Kratom leaf.  We can process the Kratom in a varity of ways such as 
-                fine powder, nano powder, extracts, and teas.    
+                Another goal of Remedy is to help meet the needs of all the clients we work with.  We do this by doing the painstaking research of all the different 
+                processing methods and how we can get the full alkaloids and compounds from the Kratom leaf.  We can process the Kratom through grinding such as 
+                fine powder or nano powder.    
                 <br/><br/>
-                Remedy is located in the district of Bang Kapong which is in the providence of Chachoengsao.  Chachoengsao is where our facory is located 
-                and where we process the Kratom.  Right now we can ground the Kratom either as fine powder or nano powder.  Remedy may offer resin or teabags in the future.
+                Remedy is located in the district of Bang Kapong which is in the providence of Chachoengsao. Right now we can ground the Kratom either as fine powder or nano powder.
+                Remedy will work with our clients to develop any processes that they request to process the Kratom in.
               </p>
               <h2 className="text-center">Plantation Investment</h2>
               <p>
@@ -145,8 +145,6 @@ const About = () => {
                   <Image src="/images/container-ship.jpg" className="d-block w-100" width={600} height={415} alt="gamma treatment" />
                 </div>
                 <div className="process-number">03</div>
-              
-
             </div>
           </section>
           <section className="factory-section">
@@ -157,6 +155,9 @@ const About = () => {
                   Our factory is located in Bang Kapong which is in the providence of Chachoengsao.  This is where we wash, dry, grind, and sanitize the Kratom for shipment. We have invested
                   alot into making a fully functional factory for Kratom with large washing tubs, drying machines, grinding machines, gamma treatment lights for sanitization, packaging rooms, storage rooms, and more.
                 </p>
+              </div>
+              <div className="col-md-6 offset-md-3">
+                <Image src="/images/factory-sign.jpg" className="d-block w-100" width={650} height={415} alt="gamma treatment" />
               </div>
             </div>
           </section>

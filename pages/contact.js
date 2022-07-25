@@ -52,7 +52,7 @@ const Contact = () => {
   }
 
   return (
-    <Layout>
+    <Layout title="Contact Page">
       <div className="contact-container">
         <ToastContainer 
           position="top-center" 

@@ -15,7 +15,7 @@ const FAQ = () => {
 }, [])
 
   return (
-    <Layout>
+    <Layout title="FAQ Page">
       <div className="faq-container">
         <div className="page-header">
           <div className="container-fluid">

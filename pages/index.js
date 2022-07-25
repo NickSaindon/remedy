@@ -169,7 +169,7 @@ const Home = () => {
   }, []);
 
   return (
-    <Layout>
+    <Layout title="Home Page">
       <div id="page" className="home-container">
         <div id="content" className="site-content">
           <div className="header-container">
@@ -202,16 +202,13 @@ const Home = () => {
                 <div className="col-lg-8 col-md-12 col-sm-12 about-left">
                   <h2>What About Remedy?</h2>
                   <p>
-                    Remedy is a company that Manufactures Kratom through many different processes for vendors to sell in the market.  Our goal is to ship 
-                    quality Kratom that is safe from any metals, bacteria, and that is grown naturally without the useage of any non organic pesticides.
-                    The word Kratom is actually a Thai word that means "Hut" because of the shape of the tree and the word Maeng Da in Thai means "Horseshoe Crab" which 
-                    is used to describe the shape of the top of the leaf.  
+                    Remedy is a company located in Thailand that handles the end-to-end process of high-quality Thai Kratom. Our mission is to supply quality Kratom that is safe from any 
+                    metals, bacteria, and that is grown naturally without the usage of any non-organic pesticides or fertilizers. 
                     <br /><br />
-                    Most of the world’s Kratom originates from Thailand. The humid air, 
-                    and the acidic soil is rich in all the right nutrients making it the perfect place for the Kratom tree to grow.  This is also why Remedy offers to its vendors 
-                    an opportunity of a lifetime with our <b>Plantation Investment Program</b>. This opportunity enables vendors to secure their own supply of Kratom tress that 
-                    we plant and harest solely for their company needs. Remedy is a company dedicated to mainting quiality which is why we have chosen to work with AKA members who are also
-                    committed to the furture of Kratom and all the people it can truly help. 
+                    Most of the world’s Kratom originates from Thailand. The humid air, and the acidic soil is rich in all the right nutrients making it the perfect place for the kratom 
+                    trees to grow. Remedy is offering to its clients an opportunity of a lifetime with our <b>Plantation Investment Program</b>. This opportunity enables our clients to secure 
+                    their own supply of Kratom trees that we plant and harvest solely for their company needs. Remedy is a company dedicated to supplying high-quality kratom to our 
+                    clients, which is why we have chosen to work only with AKA members. Ensuring the furture of kratom and all the people it can truly help.
                   </p>
                   <Link href="/about" passHref>
                     <button type="button" className="btn btn-link">See Who We Are <i className="bi bi-arrow-right"></i></button>
@@ -229,8 +226,8 @@ const Home = () => {
                   <div className="col-lg-8 col-md-12">
                     <h2>Featured Products</h2>
                     <p>
-                      Check out some of the products we have to offer.  We offer an array of Kratom to can suit all of your needs.  Quality all natural Kratom that is grown in Thailand.  
-                      Become a vendor today and start ordering Kratom from a completely new market that has yet to be explored. 
+                    Check out some of the Kratom variants we have to offer. We offer an array of Kratom that can suit all of your needs. Quality all natural Kratom that is grown in Thailand. Become 
+                    a client today and start ordering Kratom from a completely new market that has yet to be explored.
                     </p>
                   </div>
                 </div>
@@ -246,7 +243,7 @@ const Home = () => {
                     </div>
                     <h2>Kan Dang</h2>
                     <Image src="/images/gan-dang2.jpg" className="d-block w-100" width={500} height={500} alt="..." />
-                    <p className="text-left"> Is the more potent of the smaller kratom, tends to be mildly sedating, relaxing and pleasant to the user, with pain relief qualities. </p>
+                    <p className="text-left"> Kan Dang is the more potent of the smaller kratom, tends to be mildly sedating, relaxing and pleasant to the user, with pain relief qualities.</p>
                   </div>
                 </div>
               </div>
@@ -266,8 +263,8 @@ const Home = () => {
               </div>
               <div className="col-lg-6 col-md-12 col-sm-12 text-center product-right">
                 <h2>Lion Tong (Golden Coin)</h2>
-                <Image src="/images/leon-tong1.jpg" className="d-block w-100" width={500} height={500} alt="..." />
-                <p>Effects are between red and white vein kratom, giving energy and pain relieve.</p>
+                <Image src="/images/leon-tong3.jpg" className="d-block w-100" width={500} height={500} alt="..." />
+                <p>Lion Tong translates to "Golden Coin." The name is given because of its unique small leave. Used by Thai farmers as a dip. Effects are between red and white vein kratom, giving energy and pain relieve.</p>
               </div>
             </div>
           </div>
@@ -282,9 +279,9 @@ const Home = () => {
               <div className="col-lg-6 col-md-12 faq-right">
                 <div className="faq-content">
                   <h1>Register</h1>
-                  <p>If you are a Vendor of Kratom and your company is a member of the AKA then look no further.
-                    We produce high quality Kratom from Thailand.  Get your Maeng Da or tradiotional green, white 
-                    or red veins as well as 
+                  <p>
+                    If you are a vendor of kratom and your company is a member of the AKA then look no further. We produce high quality kratom from Thailand. Get your Maeng Da or 
+                    tradiotional white, green or red veins here. 
                   </p>
                 </div>
               </div>
@@ -298,8 +295,7 @@ const Home = () => {
                           <Image src="/images/paper-airplane.png" width={100} height={100} alt="..." />
                           <h2 className="text-center">Contact Us Today</h2>
                           <p>
-                            Have more question?  Then don't hesitate to contact us today so we can answer those question in full, and tell you about some of our programs and
-                            different products.  Things to know:   
+                            Have more question? Then don't hesitate to contact us today so we can answer those questions in full, and tell you about some of our programs and different products.  Things to know:   
                           </p>
                           <ul>
                               <li>Click the button and lets start a discussion today.</li>

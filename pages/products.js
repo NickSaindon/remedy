@@ -37,21 +37,18 @@ const Products = (props) => {
                 <Image src="/images/kratom.jpg" className="d-block w-100" width={1920} height={825} alt="..." />
                 <div className="carousel-caption d-none d-md-block">
                   <h1>Kratom Products</h1>
-                  <p>Some representative placeholder content for the first slide.</p>
                 </div>
               </div>
               <div className="carousel-item">
                 <Image src="/images/kratom2.jpg" className="d-block w-100" width={1920} height={825} alt="..." />
                 <div className="carousel-caption d-none d-md-block">
-                  <h1>Second slide label</h1>
-                  <p>Some representative placeholder content for the first slide.</p>
+                  <h1>Maeng Da Kratom</h1>
                 </div>
               </div>
               <div className="carousel-item">
                 <Image src="/images/kratom3.jpg" className="d-block w-100" width={1920} height={825} alt="..." />
                 <div className="carousel-caption d-none d-md-block">
                   <h1>Third slide label</h1>
-                  <p>Some representative placeholder content for the first slide.</p>
                 </div>
               </div>
             </div>
@@ -68,7 +65,7 @@ const Products = (props) => {
         <div className="product-list-container">
           <div className="product-list-wrapper">
             <div className="container-xl">
-              <div className="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+              <div className="row row-cols-1 row-cols-sm-2 row-cols-md-2 row-cols-lg-3 g-3">
                 {products.map((product) => (
                   <div className="col" key={product._id}>
                     <div className="card shadow-sm">
@@ -83,8 +80,9 @@ const Products = (props) => {
                       </Link>
                       <div className="card-body">
                         <h4 className="card-text">{product.name} - {product.color}</h4>
-                        <p>{product.benefits.substring(0, 80)}{ product.description.length >= 10 && `...` }</p>
-                        <div className="d-flex justify-content-between align-items-center">
+                        <p>{product.benefits.substring(0, 70)}{ product.description.length >= 10 && `...` }</p>
+                        <div className="row">
+                          <div className="col-lg-6">
                           <Link 
                             key={product.name}
                             href={`/product/${product.slug}`} 
@@ -97,6 +95,9 @@ const Products = (props) => {
                               Read More
                             </button>
                           </Link>
+                          </div>
+                          <div className="col-lg-6">
+
                           <button 
                             type="button" 
                             className="w-100 btn btn-lg btn-outline-primary light"
@@ -104,6 +105,7 @@ const Products = (props) => {
                           >
                             Add To Cart
                           </button>
+                          </div>
                         </div>
                       </div>
                     </div>
