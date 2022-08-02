@@ -52,7 +52,10 @@ const Contact = () => {
   }
 
   return (
-    <Layout title="Contact Page">
+    <Layout 
+      title="Contact Page"
+      description="Remedy Exports is a Thai based manufacture and export company that works with clients to procure the best Thai Kratom.  We handle the end-to-end process to supply quality Kratom that is safe from any 
+      metals, bacteria, and that is grown naturally without the usage of any non-organic pesticides or fertilizers.">
       <div className="contact-container">
         <ToastContainer 
           position="top-center" 

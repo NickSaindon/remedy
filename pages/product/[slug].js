@@ -34,7 +34,7 @@ const ProductDetails = (props) => {
   }
 
   return (
-    <Layout>
+    <Layout title="Product Details Page">
       <div className="details-container">
         <section>
           <div className="container-xxl">

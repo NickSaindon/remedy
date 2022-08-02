@@ -412,7 +412,7 @@ main {
           top: -30px;
         }
         &:nth-child(2) {
-          font-size: 25vw;
+          font-size: 27vw;
           left: -150px;
           top: 350px
         }
@@ -789,14 +789,11 @@ main {
   }
 }
 
-
-
 // Products
 .products-container {
   .carousel-item {
       img {
         mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1.0) 80%, transparent 100%);
-
       }
       .carousel-caption {
         top: 30%;
@@ -804,7 +801,6 @@ main {
           font-size: 50px;
         }
       }
-
   }
   .product-list-container {
     position: relative;
@@ -972,7 +968,6 @@ main {
           text-decoration: none;
         }
       }
-
     }
   }
 
@@ -1513,10 +1508,14 @@ footer {
       h1 {
         &:nth-child(1) {
           font-size: 80px;
+          color: white;
         }
         &:nth-child(2) {
           font-size: 80px;
         }
+      }
+      .bi-arrow-down {
+        color: white;
       }
     }
     .contact-header-right {
@@ -1527,10 +1526,14 @@ footer {
       h1 {
         &:nth-child(1) {
           font-size: 55px;
+          color: white;
         }
         &:nth-child(2) {
           font-size: 55px;
         }
+      }
+      .bi-arrow-down {
+        color: white;
       }
     }
   }
@@ -1838,10 +1841,14 @@ footer {
       h1 {
         &:nth-child(1) {
           font-size: 90px;
+          color: white;
         }
         &:nth-child(2) {
           font-size: 90px;
         }
+      }
+      .bi-arrow-down {
+        color: white;
       }
     }
     .contact-header-right {
@@ -1852,10 +1859,14 @@ footer {
       h1 {
         &:nth-child(1) {
           font-size: 75px;
+          color: white;
         }
         &:nth-child(2) {
           font-size: 75px;
         }
+      }
+      .bi-arrow-down {
+        color: white;
       }
     }
   }

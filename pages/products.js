@@ -28,7 +28,7 @@ const Products = (props) => {
   };
 
   return (
-    <Layout>
+    <Layout title="Products Page">
       <div className="products-container">
         <div className="container-xxl">
           <div id="carouselExampleFade" className="carousel slide carousel-fade" data-bs-ride="carousel">

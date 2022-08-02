@@ -16,7 +16,7 @@ const Home = () => {
     const words = [
       'Looking for quality Kratom?',
       'Then look no further!',
-      'Remedy is an export company that can get what you need.',
+      'Remedy is an manufacturing and export company that has what you need.',
     ];
 
     // start typing effect
@@ -169,7 +169,10 @@ const Home = () => {
   }, []);
 
   return (
-    <Layout title="Home Page">
+    <Layout 
+      title="Home Page" 
+      description="Remedy Exports is a Thai based manufacture and export company that works with clients to procure the best Thai Kratom.  We handle the end-to-end process to supply quality Kratom that is safe from any 
+      metals, bacteria, and that is grown naturally without the usage of any non-organic pesticides or fertilizers.">
       <div id="page" className="home-container">
         <div id="content" className="site-content">
           <div className="header-container">
@@ -202,13 +205,13 @@ const Home = () => {
                 <div className="col-lg-8 col-md-12 col-sm-12 about-left">
                   <h2>What About Remedy?</h2>
                   <p>
-                    Remedy is a company located in Thailand that handles the end-to-end process of high-quality Thai Kratom. Our mission is to supply quality Kratom that is safe from any 
+                    Remedy Exports is a company located in Thailand that handles the end-to-end process of high-quality Thai Kratom. Our mission is to supply quality Kratom that is safe from any 
                     metals, bacteria, and that is grown naturally without the usage of any non-organic pesticides or fertilizers. 
                     <br /><br />
-                    Most of the world’s Kratom originates from Thailand. The humid air, and the acidic soil is rich in all the right nutrients making it the perfect place for the kratom 
-                    trees to grow. Remedy is offering to its clients an opportunity of a lifetime with our <b>Plantation Investment Program</b>. This opportunity enables our clients to secure 
-                    their own supply of Kratom trees that we plant and harvest solely for their company needs. Remedy is a company dedicated to supplying high-quality kratom to our 
-                    clients, which is why we have chosen to work only with AKA members. Ensuring the furture of kratom and all the people it can truly help.
+                    Most of the world’s Kratom originates from Thailand. The humid air, and the acidic soil is rich in all the right nutrients making it the perfect place for the Kratom 
+                    trees to grow. Remedy Exports is offering to its clients an opportunity of a lifetime with our <b>Plantation Investment Program</b>. This opportunity enables our clients to secure 
+                    their own supply of Kratom trees that we plant and harvest solely for their company needs. Remedy Exports is a company dedicated to supplying high-quality Kratom to our 
+                    clients, which is why we have chosen to work only with AKA members. Ensuring the furture of Kratom and all the people it can truly help.
                   </p>
                   <Link href="/about" passHref>
                     <button type="button" className="btn btn-link">See Who We Are <i className="bi bi-arrow-right"></i></button>
@@ -226,8 +229,8 @@ const Home = () => {
                   <div className="col-lg-8 col-md-12">
                     <h2>Featured Products</h2>
                     <p>
-                    Check out some of the Kratom variants we have to offer. We offer an array of Kratom that can suit all of your needs. Quality all natural Kratom that is grown in Thailand. Become 
-                    a client today and start ordering Kratom from a completely new market that has yet to be explored.
+                      Check out some of the Kratom variants we have to offer. We offer an array of Kratom that can suit all of your needs. Quality all 
+                      natural Kratom that is grown in Thailand. Become a client today and start ordering Kratom from a completely new market that has yet to be explored.
                     </p>
                   </div>
                 </div>
@@ -235,7 +238,7 @@ const Home = () => {
                   <div className="col-lg-6 col-md-12 col-sm-12 product-left align-items-center">
                     <h2>Meang Da</h2>
                     <Image src="/images/maeng-da-red1.jpg" className="d-block w-100" width={500} height={500} alt="..." />
-                    <p>Maeng Da kratom was developed in Thailand in the early 1900’s.  This strain was developed to help alleviate muscle pain while still providing an energizing effect.</p>
+                    <p>Maeng Da Kratom was developed in Thailand in the early 1900’s.  This strain was developed to help alleviate muscle pain while still providing an energizing effect.</p>
                   </div>
                   <div className="col-lg-6 col-md-12 col-sm-12 align-items-center text-center product-right">
                     <div className="leaf-img">
@@ -243,7 +246,7 @@ const Home = () => {
                     </div>
                     <h2>Kan Dang</h2>
                     <Image src="/images/gan-dang2.jpg" className="d-block w-100" width={500} height={500} alt="..." />
-                    <p className="text-left"> Kan Dang is the more potent of the smaller kratom, tends to be mildly sedating, relaxing and pleasant to the user, with pain relief qualities.</p>
+                    <p className="text-left"> Kan Dang is the more potent of the smaller Kratom leaves and tends to be mildly sedating, relaxing and pleasant to the user with pain relief qualities.</p>
                   </div>
                 </div>
               </div>
@@ -262,9 +265,9 @@ const Home = () => {
                 </div>           
               </div>
               <div className="col-lg-6 col-md-12 col-sm-12 text-center product-right">
-                <h2>Lion Tong (Golden Coin)</h2>
+                <h2>Leon Tong (Golden Coin)</h2>
                 <Image src="/images/leon-tong3.jpg" className="d-block w-100" width={500} height={500} alt="..." />
-                <p>Lion Tong translates to "Golden Coin." The name is given because of its unique small leave. Used by Thai farmers as a dip. Effects are between red and white vein kratom, giving energy and pain relieve.</p>
+                <p>Leon Tong translates to "Golden Coin." This name comes from its unique small leaf at the bottom of the larger leaf. It is often used by Thai farmers as a dip and its effects are between red and white vein kratom, giving energy and pain relief.</p>
               </div>
             </div>
           </div>
@@ -280,7 +283,7 @@ const Home = () => {
                 <div className="faq-content">
                   <h1>Register</h1>
                   <p>
-                    If you are a vendor of kratom and your company is a member of the AKA then look no further. We produce high quality kratom from Thailand. Get your Maeng Da or 
+                    If you are a vendor of Kratom and your company is a member of the AKA then look no further. We produce high quality Kratom from Thailand. Get your Maeng Da or 
                     tradiotional white, green or red veins here. 
                   </p>
                 </div>

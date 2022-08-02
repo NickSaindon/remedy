@@ -58,13 +58,16 @@ const About = () => {
 }, [])
 
   return (
-    <Layout title="About Page">
+    <Layout 
+      title="About Page"
+      description="Remedy Exports is a Thai based manufacture and export company that works with clients to procure the best Thai Kratom.  We handle the end-to-end process to supply quality Kratom that is safe from any 
+      metals, bacteria, and that is grown naturally without the usage of any non-organic pesticides or fertilizers.">
       <div className="about-container">
         <div className="page-header">
           <div className="container-fluid">
             <div className="row">
               <div className="col-lg-6 page-header-left">
-                  <div className="about-img" />
+                <div className="about-img" />
               </div>
               <div className="col-lg-6 page-header-right text-center">
                 <h1>ABOUT</h1>
@@ -84,23 +87,18 @@ const About = () => {
             </div>
             <div>
               <p>
-                Remedy is an export business that specializes in the shipment of Thai Kratom to clients in the US. It is owned and operated
-                by two American brothers.  One that lives in Thailand and one that lives in the United States. After much research this 
-                opportunity presented itself in the Kratom trees that grow in humid and tropical locations like the forest across Southeast 
-                Asia.
+                Remedy Exports is an manufacturing and export business that specializes in the growing, grinding and shipping of Thai Kratom to vendors in the US. It is owned and operated by 
+                two American brothers. One that lives in Thailand and one that lives in the United States.  Remedy Exports works around the clock to ensure that its clients needs are taken care of.
                 <br/><br/>  
-                Our goal is to ship quality Kratom that is safe from any metals, bacteria, and that is grown naturally without the useage of any pesticides.  
-                Remedy only looks to ship to clients that are members of the AKA (American Kratom Association).  This is to maintain a realationsip 
-                that is based on trust in the quality of the product we ship.  Furthermore, we work with the clients that are members of 
-                the AKA because they have committed to the AKA Good Manufacturing Practices program and we are commited to producing a higher quality product 
-                that is superior to others.
+                Our goal is to procure quality Kratom that is safe from any metals, bacteria, and that is grown naturally without the usage of any chemical pesticides 
+                or fertilizers. Remedy Exports only looks to work with vendors that are members of the AKA (American Kratom Association). This is to maintain a high quality 
+                standard from plantation to consumer through mutual goals of Good Manufacturing Practices.
                 <br/><br/> 
-                Another goal of Remedy is to help meet the needs of all the clients we work with.  We do this by doing the painstaking research of all the different 
+                Another goal of Remedy Exports is to help meet the needs of all the clients we work with.  We do this by doing the painstaking research of all the different 
                 processing methods and how we can get the full alkaloids and compounds from the Kratom leaf.  We can process the Kratom through grinding such as 
                 fine powder or nano powder.    
                 <br/><br/>
-                Remedy is located in the district of Bang Kapong which is in the providence of Chachoengsao. Right now we can ground the Kratom either as fine powder or nano powder.
-                Remedy will work with our clients to develop any processes that they request to process the Kratom in.
+                Our company's factory and headquarters is located in the district of Bang Kapong in the province of Chachoengsao, Thailand. 
               </p>
               <h2 className="text-center">Plantation Investment</h2>
               <p>
@@ -133,7 +131,7 @@ const About = () => {
             <div className="process-two d-flex justify-content-start">
               <div className="two-content">
                   <h5>Gamma Treated/Sanitized</h5>
-                  <p>The Kratom is taken to another facility to be gamma treated/sanitized.</p>
+                  <p>The kratom is then sanitized in our UVIG room.</p>
                   <Image src="/images/gamma-treatment.jpg" className="d-block w-100" width={600} height={388} alt="gamma treatment" />
                 </div>
                 <div className="process-number">02</div>
@@ -141,7 +139,7 @@ const About = () => {
             <div className="process-three d-flex justify-content-center align-items-center">
               <div className="three-content">
                   <h5>Taken to the Port</h5>
-                  <p>Kratom is taken to the port and prepared for shipment.</p>
+                  <p>Kratom is then boxed and palleted and taken to the Laem Chabang port for exportation.</p>
                   <Image src="/images/container-ship.jpg" className="d-block w-100" width={600} height={415} alt="gamma treatment" />
                 </div>
                 <div className="process-number">03</div>
@@ -152,8 +150,9 @@ const About = () => {
               <div className="col-md-12">
                 <h2 className="text-center">Our Factory</h2>
                 <p>
-                  Our factory is located in Bang Kapong which is in the providence of Chachoengsao.  This is where we wash, dry, grind, and sanitize the Kratom for shipment. We have invested
-                  alot into making a fully functional factory for Kratom with large washing tubs, drying machines, grinding machines, gamma treatment lights for sanitization, packaging rooms, storage rooms, and more.
+                  Our factory is located in the district of Bang Kapong, the province of Chachoengsao, Thailand. This is where we wash, dry, grind, and sanitize 
+                  the Kratom for shipment. The factory is a fully functional facility for processing Kratom. Washing tubs, drying machines, grinding machines, 
+                  UVGI sanitization room, packaging rooms, storage rooms, and more.
                 </p>
               </div>
               <div className="col-md-6 offset-md-3">

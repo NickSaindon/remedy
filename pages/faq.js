@@ -15,7 +15,10 @@ const FAQ = () => {
 }, [])
 
   return (
-    <Layout title="FAQ Page">
+    <Layout 
+      title="FAQ Page"
+      description="Remedy Exports is a Thai based manufacture and export company that works with clients to procure the best Thai Kratom.  We handle the end-to-end process to supply quality Kratom that is safe from any 
+      metals, bacteria, and that is grown naturally without the usage of any non-organic pesticides or fertilizers.">
       <div className="faq-container">
         <div className="page-header">
           <div className="container-fluid">
@@ -43,11 +46,8 @@ const FAQ = () => {
                 </h2>
                 <div id="remedyCollapseOne" className="accordion-collapse collapse show" aria-labelledby="remedyHeadingOne" data-bs-parent="#remedyQuestions">
                   <div className="accordion-body">
-                    There are two ways to becoming a vendor with Remedy.  These two ways are either through a Manufacturing Agreement or a Plantation Investment Agreement which Remedy offers to AKA vendors.  Once either one of these agreements are made
-                    vendors can register here on this website which we will approve and give access to making orders.
-                    <br/><br />
-                    If a vendor chooses the Manufactuing Agreement we will source Kratom from platations we have contracted and/or from our own platation in which we will also process through our factory.  If a vendor is actually looking to procure their own
-                    Kratom through our Plantation Investment Agreement we will plant and harest the vendors own trees and we will source from the vendors own supply and process it at our factory.  
+                    There are two ways to becoming a client with Remedy Exports. These two ways are either through a Manufacturing Agreement or a Plantation Investment Agreement which Remedy Exports offers to 
+                    AKA vendors. Once either one of these agreements are made vendors can register here on this website which we will approve and give access to making orders.
                   </div>
                 </div>
               </div>

@@ -42,7 +42,10 @@ const Login = () => {
   }
 
   return (
-    <Layout title="Login">
+    <Layout 
+      title="Login"
+      description="Remedy Exports is a Thai based manufacture and export company that works with clients to procure the best Thai Kratom.  We handle the end-to-end process to supply quality Kratom that is safe from any 
+      metals, bacteria, and that is grown naturally without the usage of any non-organic pesticides or fertilizers.">
       <div className="login-container text-center">
         <main className="form-signin">
           <div className="row justify-content-md-center">
