@@ -87,27 +87,27 @@ const About = () => {
             </div>
             <div>
               <p>
-                Remedy Exports is an manufacturing and export business that specializes in the growing, grinding and shipping of Thai Kratom to vendors in the US. It is owned and operated by 
-                two American brothers. One that lives in Thailand and one that lives in the United States.  Remedy Exports works around the clock to ensure that its clients needs are taken care of.
+                Remedy Exports is an manufacturing and export business that specializes in the growing, grinding and shipping of Thai Kratom to vendors worldwide. Remedy Exports is a Thai 
+                registered company limited. Our company works around the clock to ensure that its clients needs are met at all times.
                 <br/><br/>  
                 Our goal is to procure quality Kratom that is safe from any metals, bacteria, and that is grown naturally without the usage of any chemical pesticides 
-                or fertilizers. Remedy Exports only looks to work with vendors that are members of the AKA (American Kratom Association). This is to maintain a high quality 
-                standard from plantation to consumer through mutual goals of Good Manufacturing Practices.
+                or fertilizers. Remedy Exports only looks to work with vendors that agree in using GMP (Good Manufacturing Practices) and testing of their Kratom products. This 
+                is to maintain a high quality standard from plantation to consumer through mutual goals of Good Manufacturing Practices.
                 <br/><br/> 
-                Another goal of Remedy Exports is to help meet the needs of all the clients we work with.  We do this by doing the painstaking research of all the different 
-                processing methods and how we can get the full alkaloids and compounds from the Kratom leaf.  We can process the Kratom through grinding such as 
-                fine powder or nano powder.    
+                Another goal of Remedy Exports is to help meet the needs of all the clients we work with. We do this by over-seeing the end-to-end production, 
+                from farm, factory, exportation Remedy handles every step of the process.  By partnering with our clients we look to create a process that will standardize
+                this industry in a way that is safe a profitable for all.    
                 <br/><br/>
                 Our company's factory and headquarters is located in the district of Bang Kapong in the province of Chachoengsao, Thailand. 
               </p>
               <h2 className="text-center">Plantation Investment</h2>
               <p>
-                The aim of this plantation investment is to provide our clients with high-quality Kratom that is exclusively procured for their company’s needs.  We look to 
-                support the needs of our clients through our land leasing initiative that will facilitate the end-to-end agricultural harvesting of Kratom in the local market. 
-                Working with our local partnerships to expand our clients supply and demand in the US and the World market.  Our approach is to implement a scaleable solution with 
-                a proactive approach to problem solving that keeps business cost low, and creates room for expansion for our clients.  We understand that our client's business 
-                and future business needs should be functional, efficient and proactive solutions to procurement, processing and exporting their valuable commodities. Here at Remedy 
-                we believe we hold the the remedy to helping our clients current and future business reach their full potential in the industry.
+                The aim of this investment program is to provide our clients with high-quality Kratom that is exclusively procured for their company’s needs. We look to support 
+                the needs of our clients through our investment program that will facilitate the end-to-end production of Kratom in the local market. Working with our local 
+                partnerships to expand our clients supply and demand in the US and the World market. Our approach is to implement a scaleable solution with a proactive approach 
+                to problem solving that keeps business cost low, and creates room for expansion for our clients. We understand that our client's business and future business needs 
+                should be functional, efficient and proactive solutions to procurement, processing and exporting this valuable commodity. Here at Remedy we believe we hold the 
+                remedy to helping our clients current and future business reach their full potential in the industry.
               </p>
               <ul>
                 <li>Remedy Exports covers X amount of acres of plantation to grow Kratom trees.</li>
@@ -131,7 +131,7 @@ const About = () => {
             <div className="process-two d-flex justify-content-start">
               <div className="two-content">
                   <h5>Gamma Treated/Sanitized</h5>
-                  <p>The kratom is then sanitized in our UVIG room.</p>
+                  <p>The kratom is then sanitized in our Microwave/UVGI room.</p>
                   <Image src="/images/gamma-treatment.jpg" className="d-block w-100" width={600} height={388} alt="gamma treatment" />
                 </div>
                 <div className="process-number">02</div>

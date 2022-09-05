@@ -46,8 +46,8 @@ const FAQ = () => {
                 </h2>
                 <div id="remedyCollapseOne" className="accordion-collapse collapse show" aria-labelledby="remedyHeadingOne" data-bs-parent="#remedyQuestions">
                   <div className="accordion-body">
-                    There are two ways to becoming a client with Remedy Exports. These two ways are either through a Manufacturing Agreement or a Plantation Investment Agreement which Remedy Exports offers to 
-                    AKA vendors. Once either one of these agreements are made vendors can register here on this website which we will approve and give access to making orders.
+                    There are two ways to becoming a client with Remedy Exports. These two ways are either through a Manufacturing Agreement or our Investment Agreement which Remedy Exports offers to clients
+                    that agree to GMP (Good Manufacturing Practices). Once either one of these agreements are made vendors can register here on this website which we will approve and give access to making orders.
                   </div>
                 </div>
               </div>
@@ -92,7 +92,7 @@ const FAQ = () => {
               <div className="accordion-item">
                 <h2 className="accordion-header" id="remedyHeadingFive">
                   <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#remedyCollapseFive" aria-expanded="false" aria-controls="remedyCollapseFive">
-                    How can Remedy Exports Plantation Investment Program help vendors?
+                    How can Remedy Exports Investment Program help vendors?
                   </button>
                 </h2>
                 <div id="remedyCollapseFive" className="accordion-collapse collapse" aria-labelledby="remedyHeadingFive" data-bs-parent="#remedyQuestions">
@@ -119,7 +119,8 @@ const FAQ = () => {
                 <div id="kratomCollapseOne" className="accordion-collapse collapse show" aria-labelledby="kratomHeadingOne" data-bs-parent="#kratomQuestions">
                   <div className="accordion-body">
                     Kratom is a safe herbal supplement used by millions of Americans to manage pain, or as an alternative to coffee to help 
-                    their mood and focus.<br/><br/> 
+                    their mood and focus.
+                    <br/><br/> 
                     Natural Kratom comes from a tropical tree in the coffee family native to Southeast Asia and has been used for centuries in traditional medicines. 
                     Kratom has been safely used for decades here in the United States, and is becoming increasingly popular because of what it is, and what it isn’t.
                   </div>
@@ -133,8 +134,15 @@ const FAQ = () => {
                 </h2>
                 <div id="kratomCollapseSix" className="accordion-collapse collapse" aria-labelledby="kratomHeadingSix" data-bs-parent="#kratomQuestions">
                   <div className="accordion-body">
-                    Kratom is not a drug, and not a synthetic substance. Natural Kratom is a safe herbal supplement that is used by millions for pain 
-                    management or an energy boost.  Kratom has been used in Southeast Asia for centuries with no reported deaths.              
+                    For the purpose of this discussion we will discuss the three different types of Kratom in Thailand.  There is the traditional leaf, Maeng Da leaf, and Leon Tong which is a hybrid leaf.  
+                    There are no different strains of Kratom and are often miss used as marketing gimmiks.  The word Kratom is a Thai word that means "hut" which is used to describe the shape of the Kratom 
+                    tree.  The word Maeng Da in Thai means "Horseshoe Crab", and once again is used as a descriptive term to describe the shape of the Maeng Da leaf.  These names and terms have been 
+                    around for a long time and often others have tried to change the meanings as marketing gimmiks or simply out of a misunderstanding of the origins of the terms.<br/><br/>
+                    To understand Kratom you must understand how it grows.  It is not a plant but a tree, and the leaves have a gestation period where in the beginning the veins of the leaf are white.  As the 
+                    leaf grows the viens then change to green, and in its final stage turns red.  Depending on the desired compounds and akaloids from the leaf, the leaf is picked during one of these stages of the leafs
+                    gestation period.  However it must be noted again, these are not different strains but simply different stages of the leaf.
+                    <br/> <br/>  
+                    As for Leon Tong which translates to golden coin.  This name is to describe the golden bud that often shows up at the bottom of the leaf. This leaf has a red center vein with white veins off the center. 
                   </div>
                 </div>
               </div>
@@ -159,14 +167,9 @@ const FAQ = () => {
                 </h2>
                 <div id="kratomCollapseThree" className="accordion-collapse collapse" aria-labelledby="kratomHeadingThree" data-bs-parent="#kratomQuestions">
                   <div className="accordion-body">
-                    There has not been a single documented fatality that can be linked
-                    to use of the natural kratom plant. The FDA claimed deaths
-                    “associated with kratom use” are actually deaths caused by
-                    polydrug use, underlying medical conditions, or the use of
-                    adulterated kratom products laced with toxic levels of dangerous
-                    substances, including opioids. National Institutes on Drug Abuse’s
-                    (NIDA) newly-updated conclusions agree that kratom use does not
-                    cause overdose deaths.
+                    There has not been a single documented fatality that can be linked to use of the natural kratom plant. The FDA claimed deaths “associated with kratom use” are actually deaths caused by
+                    polydrug use, underlying medical conditions, or the use of adulterated kratom products laced with toxic levels of dangerous substances, including opioids. National Institutes on Drug Abuse’s
+                    (NIDA) newly-updated conclusions agree that kratom use does not cause overdose deaths.
                   </div>
                 </div>
               </div>
@@ -178,12 +181,9 @@ const FAQ = () => {
                 </h2>
                 <div id="kratomCollapseFour" className="accordion-collapse collapse" aria-labelledby="kratomHeadingFour" data-bs-parent="#kratomQuestions">
                   <div className="accordion-body">
-                    Like coffee, tea, and other caffeinated drinks, consumers can
-                    develop a dependency on kratom, which is vastly different from an
-                    addiction. Two new scientific studies completely debunk the FDA
-                    theory. The Hemby study in June 2018 concluded “MG does not
-                    have abuse potential and reduces morphine intake,” and the Yue
-                    study in July 2018 reported “limited abuse liability and potential for
+                    Like coffee, tea, and other caffeinated drinks, consumers can develop a dependency on Kratom, which is vastly different from an
+                    addiction. Two new scientific studies completely debunk the FDA theory. The Hemby study in June 2018 concluded “MG does not
+                    have abuse potential and reduces morphine intake,” and the Yue study in July 2018 reported “limited abuse liability and potential for
                     mitragynine treatment to specifically reduce opioid abuse.” 
                   </div>
                 </div>

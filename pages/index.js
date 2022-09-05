@@ -211,7 +211,8 @@ const Home = () => {
                     Most of the world’s Kratom originates from Thailand. The humid air, and the acidic soil is rich in all the right nutrients making it the perfect place for the Kratom 
                     trees to grow. Remedy Exports is offering to its clients an opportunity of a lifetime with our <b>Plantation Investment Program</b>. This opportunity enables our clients to secure 
                     their own supply of Kratom trees that we plant and harvest solely for their company needs. Remedy Exports is a company dedicated to supplying high-quality Kratom to our 
-                    clients, which is why we have chosen to work only with AKA members. Ensuring the furture of Kratom and all the people it can truly help.
+                    clients, which is why we have chosen to work only with clients that agree to using GMP (Good Manufacturing Practices) and testing of the Kratom. Ensuring the furture of Kratom 
+                    and all the people it can truly help while standardizing the industry for safe consumer products.
                   </p>
                   <Link href="/about" passHref>
                     <button type="button" className="btn btn-link">See Who We Are <i className="bi bi-arrow-right"></i></button>
@@ -283,7 +284,7 @@ const Home = () => {
                 <div className="faq-content">
                   <h1>Register</h1>
                   <p>
-                    If you are a vendor of Kratom and your company is a member of the AKA then look no further. We produce high quality Kratom from Thailand. Get your Maeng Da or 
+                    If you are a vendor of Kratom and your company that uses GMP then look no further. We produce high quality Kratom from Thailand. Get your Maeng Da or 
                     tradiotional white, green or red veins here. 
                   </p>
                 </div>
