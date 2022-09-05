@@ -100,7 +100,7 @@ const About = () => {
                 <br/><br/>
                 Our company's factory and headquarters is located in the district of Bang Kapong in the province of Chachoengsao, Thailand. 
               </p>
-              <h2 className="text-center">Plantation Investment</h2>
+              <h2 className="text-center">Investment Program</h2>
               <p>
                 The aim of this investment program is to provide our clients with high-quality Kratom that is exclusively procured for their company’s needs. We look to support 
                 the needs of our clients through our investment program that will facilitate the end-to-end production of Kratom in the local market. Working with our local 

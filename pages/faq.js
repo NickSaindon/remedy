@@ -60,7 +60,7 @@ const FAQ = () => {
                 <div id="remedyCollapseTwo" className="accordion-collapse collapse" aria-labelledby="remedyHeadingTwo" data-bs-parent="#remedyQuestions">
                   <div className="accordion-body">
                     This is a great question as the Kratom can be procured in serveral different ways.  The simple answer is from plantations in Thailand.  However, which plantation is really up to the vendor and which
-                    option they choose to take.  We can either source the Kratom from plantations we have contracts with, and/or from our own plantation, or from vendors own trees through our Planatation Investment.
+                    option they choose to take.  We can either source the Kratom from plantations we have contracts with, and/or from our own plantation, or from vendors own trees through our Investment Program.
                   </div>
                 </div>
               </div>
@@ -139,7 +139,7 @@ const FAQ = () => {
                     tree.  The word Maeng Da in Thai means "Horseshoe Crab", and once again is used as a descriptive term to describe the shape of the Maeng Da leaf.  These names and terms have been 
                     around for a long time and often others have tried to change the meanings as marketing gimmiks or simply out of a misunderstanding of the origins of the terms.<br/><br/>
                     To understand Kratom you must understand how it grows.  It is not a plant but a tree, and the leaves have a gestation period where in the beginning the veins of the leaf are white.  As the 
-                    leaf grows the viens then change to green, and in its final stage turns red.  Depending on the desired compounds and akaloids from the leaf, the leaf is picked during one of these stages of the leafs
+                    leaf grows the viens then change to green, and in its final stage turns red.  Depending on the desired compounds and Floids from the leaf, the leaf is picked during one of these stages of the leafs
                     gestation period.  However it must be noted again, these are not different strains but simply different stages of the leaf.
                     <br/> <br/>  
                     As for Leon Tong which translates to golden coin.  This name is to describe the golden bud that often shows up at the bottom of the leaf. This leaf has a red center vein with white veins off the center. 
