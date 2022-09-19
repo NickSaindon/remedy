@@ -120,7 +120,18 @@ const data = {
             description: 'There is three main types of Thai Kratom: white vein, green vein and red vein. The difference between the strains’ colors and effects has to do with the age of the plant and sunlight exposure. White vein is the young plant, green vein is the plant as its maturing, and red vein is the fully mature plant. As a Kratom plant matures, different levels of alkaloids build within the leaves. The different alkaloids determine what effect the Kratom will have and also gives the veins their unique properties.',
             benefits: 'Effects are between red and white vein kratom, giving energy and pain relieve. Thai farmers like to dip while working their farms, helping with productivity and pain relieve from sun and manual labor.'
         }
-    ]
+    ],
+    blogs: [
+        {
+            title: 'History of Kratom in Thailand',
+            headerImage: '/images/kratom.jpg',
+            description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+            author: 'Nick Saindon',
+            article: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Dictumst quisque sagittis purus sit amet. Malesuada bibendum arcu vitae elementum. Pharetra diam sit amet nisl. Non arcu risus quis varius quam quisque. Faucibus nisl tincidunt eget nullam non nisi est sit. Aliquet eget sit amet tellus. Risus in hendrerit gravida rutrum quisque non tellus. Vestibulum sed arcu non odio euismod lacinia at. Non quam lacus suspendisse faucibus interdum. Fames ac turpis egestas maecenas pharetra convallis posuere morbi. Vitae elementum curabitur vitae nunc sed velit dignissim sodales ut. Egestas integer eget aliquet nibh. Aliquet porttitor lacus luctus accumsan tortor posuere ac ut consequat. Arcu non odio euismod lacinia at quis. Facilisis volutpat est velit egestas. Sed libero enim sed faucibus turpis in eu. Cursus mattis molestie a iaculis. Amet nisl purus in mollis nunc. Amet consectetur adipiscing elit duis. Elementum eu facilisis sed odio morbi quis. Magna fermentum iaculis eu non diam phasellus vestibulum lorem sed. Facilisis magna etiam tempor orci eu. Aliquam etiam erat velit scelerisque in dictum non consectetur a. Mauris vitae ultricies leo integer malesuada. Malesuada pellentesque elit eget gravida cum sociis. At ultrices mi tempus imperdiet. Tincidunt lobortis feugiat vivamus at augue. Dis parturient montes nascetur ridiculus mus. Suspendisse faucibus interdum posuere lorem. Quis ipsum suspendisse ultrices gravida dictum fusce ut placerat orci. Tincidunt id aliquet risus feugiat. Laoreet sit amet cursus sit amet. Tempor orci dapibus ultrices in iaculis nunc sed augue lacus. Lacinia quis vel eros donec ac odio. Ornare aenean euismod elementum nisi quis eleifend. Curabitur gravida arcu ac tortor dignissim convallis.',
+            published: false,
+            slug: 'history-of-kratom-in-thailand',
+        }
+    ],
 };
 
 export default data;

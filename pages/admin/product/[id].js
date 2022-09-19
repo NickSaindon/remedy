@@ -186,9 +186,9 @@ const ProductEdit = ({ params }) => {
                     </div>
                   }
                   {error && (
-                      <div className="alert alert-danger" role="alert">
-                          {error}
-                      </div>                    
+                    <div className="alert alert-danger" role="alert">
+                      {error}
+                    </div>                    
                   )}
                   <form 
                     onSubmit={handleSubmit(submitHandler)}

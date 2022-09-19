@@ -8,13 +8,14 @@ import SideNav from '../../components/SideNav';
 import { getError } from '../../utils/error';
 import { Store } from '../../utils/Store';
 import { ToastContainer, toast, Slide } from "react-toastify";
+import moment from 'moment';
 
 function reducer(state, action) {
   switch (action.type) {
     case 'FETCH_REQUEST':
       return { ...state, loading: true, error: '' };
     case 'FETCH_SUCCESS':
-      return { ...state, loading: false, products: action.payload, error: '' };
+      return { ...state, loading: false, blogs: action.payload, error: '' };
     case 'FETCH_FAIL':
       return { ...state, loading: false, error: action.payload };
     case 'CREATE_REQUEST':
@@ -36,17 +37,17 @@ function reducer(state, action) {
   }
 }
 
-const AdminProducts = () => {
+const AdminBlogs = () => {
   const { state } = useContext(Store);
   const router = useRouter();
   const { userInfo } = state;
-
+  
   const [
-    { loading, error, products, loadingCreate, successDelete, loadingDelete },
-    dispatch,
+    { loading, error, blogs, loadingCreate, successDelete, loadingDelete },
+      dispatch,
   ] = useReducer(reducer, {
     loading: true,
-    products: [],
+    blogs: [],
     error: '',
   });
 
@@ -57,7 +58,7 @@ const AdminProducts = () => {
     const fetchData = async () => {
       try {
         dispatch({ type: 'FETCH_REQUEST' });
-        const { data } = await axios.get(`/api/admin/products`, {
+        const { data } = await axios.get(`/api/admin/blogs`, {
           headers: { authorization: `Bearer ${userInfo.token}` },
         });
         dispatch({ type: 'FETCH_SUCCESS', payload: data });
@@ -79,17 +80,17 @@ const AdminProducts = () => {
     try {
       dispatch({ type: 'CREATE_REQUEST' });
       const { data } = await axios.post(
-        `/api/admin/products`,
+        `/api/admin/blogs`,
         {},
         {
           headers: { authorization: `Bearer ${userInfo.token}` },
         }
       );
-      dispatch({ type: 'CREATE_SUCCESS' });
-      toast.success("Product created successfully", {
-        theme: "colored"
-      });
-      router.push(`/admin/product/${data.product._id}`);
+        dispatch({ type: 'CREATE_SUCCESS' });
+        toast.success("Blog created successfully", {
+          theme: "colored"
+        });
+        router.push(`/admin/blog/${data.blog._id}`);
     } catch (err) {
       dispatch({ type: 'CREATE_FAIL' });
       toast.error(getError(err), {
@@ -97,18 +98,18 @@ const AdminProducts = () => {
       });
     }
   };
-
-  const deleteHandler = async (productId) => {
+    
+  const deleteHandler = async (blogId) => {
     if (!window.confirm('Are you sure?')) {
       return;
     }
     try {
       dispatch({ type: 'DELETE_REQUEST' });
-      await axios.delete(`/api/admin/products/${productId}`, {
+      await axios.delete(`/api/admin/blogs/${blogId}`, {
         headers: { authorization: `Bearer ${userInfo.token}` },
       });
       dispatch({ type: 'DELETE_SUCCESS' });
-      toast.success("Product deleted successfully", {
+      toast.success("Blog deleted successfully", {
         theme: "colored"
       });
     } catch (err) {
@@ -120,8 +121,8 @@ const AdminProducts = () => {
   };
 
   return (
-    <Layout title="Products">
-      <div className="users-container">
+    <Layout title="Blogs">
+      <div className="blogs-container">
         <ToastContainer 
           position="top-center" 
           draggable={false} 
@@ -136,11 +137,11 @@ const AdminProducts = () => {
               <SideNav />
             </div>
             <div className="col-lg-10">
-              <div className="card vendor-user-card">
+              <div className="card admin-blog-card">
                 <div className="card-body">
                   <div className="row">
                     <div className="col-md-12">
-                      <h1 className="card-title text-center">Product List</h1>
+                      <h1 className="card-title text-center">Blog Post List</h1>
                       {loadingDelete && 
                         <div className="spinner-border text-primary" role="status">
                           <span className="visually-hidden">Loading...</span>
@@ -155,7 +156,7 @@ const AdminProducts = () => {
                         className="btn btn-lg btn-outline-primary float-end light"
                         onClick={createHandler}
                       >
-                        Create Product
+                        Create Blog Post
                       </button>
                       {loadingCreate && 
                         <div className="spinner-border text-primary" role="status">
@@ -178,21 +179,24 @@ const AdminProducts = () => {
                         <thead>
                           <tr>
                             <th scope="col">ID</th>
-                            <th scope="col">NAME</th>
-                            <th scope="col">COLOR</th>
-                            <th scope="col">MAX PRICE (Per Kg)</th>
+                            <th scope="col">TITLE</th>
+                            <th scope="col">DATE</th>
+                            <th scope="col">AUTHOR</th>
+                            <th scope="col">PUBLISHED</th>
                             <th scope="col">ACTIONS</th>
                           </tr>
                         </thead>
                         <tbody>
-                          {products.map((product) => (
-                            <tr key={product._id}>
-                              <td>{product._id.substring(20, 24)}</td>
-                              <td>{product.name}</td>
-                              <td>{product.color}</td>
-                              <td>${product.price}</td>
+                          {blogs.map((blog) => (
+                            <tr key={blog._id}>
+                              <td>{blog._id.substring(20, 24)}</td>
+                              <td>{blog.title}</td>
+                              <td>{moment(blog.createdAt).format('MM/DD/YYYY')}</td>
+                              <td>{blog.author}</td>
+                              <td>{blog.published ? 'Yes' : 'No'}</td>
+
                               <td className="table-actions">
-                                <Link href={`/admin/product/${product._id}`} passHref>
+                                <Link href={`/admin/blog/${blog._id}`} passHref>
                                   <button 
                                     type="button" 
                                     className="btn btn-primary"
@@ -203,7 +207,7 @@ const AdminProducts = () => {
                                 <button 
                                   type="button" 
                                   className="btn btn-danger"
-                                  onClick={() => deleteHandler(product._id)}
+                                  onClick={() => deleteHandler(blog._id)}
                                 >
                                   Delete
                                 </button>
@@ -221,7 +225,7 @@ const AdminProducts = () => {
         </div>
       </div>
     </Layout>
-  );
+  )
 }
 
-export default dynamic(() => Promise.resolve(AdminProducts), { ssr: false });
+export default dynamic(() => Promise.resolve(AdminBlogs), { ssr: false });

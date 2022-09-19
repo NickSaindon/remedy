@@ -48,14 +48,21 @@ function Navbar() {
             <li className="nav-item">
               <Link href="/about" passHref>
                 <a className={router.asPath == "/about" ? "nav-link active" : "nav-link"}>
-                    About  
+                  About  
                 </a>
               </Link>
             </li>
             <li className="nav-item">
               <Link href="/faq" passHref>
                 <a className={router.asPath == "/faq" ? "nav-link active" : "nav-link"}>
-                    FAQ  
+                  FAQ  
+                </a>
+              </Link>
+            </li>
+            <li className="nav-item">
+              <Link href="/blog" passHref>
+                <a className={router.asPath == "/blog" ? "nav-link active" : "nav-link"}>
+                  Blog  
                 </a>
               </Link>
             </li>

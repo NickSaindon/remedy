@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import { PayPalScriptProvider } from '@paypal/react-paypal-js';
 import '../styles/globals.scss';
+import 'react-quill/dist/quill.snow.css';
 import 'bootstrap-icons/font/bootstrap-icons.css';
 import 'react-toastify/dist/ReactToastify.css';
 import { StoreProvider } from '../utils/Store';

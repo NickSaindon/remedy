@@ -130,8 +130,8 @@ const About = () => {
             </div>
             <div className="process-two d-flex justify-content-start">
               <div className="two-content">
-                  <h5>Gamma Treated/Sanitized</h5>
-                  <p>The kratom is then sanitized in our Microwave/UVGI room.</p>
+                  <h5>Sanitization</h5>
+                  <p>The Kratom is then sanitized in our Microwave/UVGI room.</p>
                   <Image src="/images/gamma-treatment.jpg" className="d-block w-100" width={600} height={388} alt="gamma treatment" />
                 </div>
                 <div className="process-number">02</div>

@@ -473,6 +473,14 @@ main {
       background-size: cover;
       background-repeat: no-repeat;
     }
+    .blog-img {
+      height: 790px;
+      width: 100%;
+      background-image: url("/images/blog-image.jpg");
+      background-position: center;
+      background-size: cover;
+      background-repeat: no-repeat;
+    }
     .contact-img {
       height: 790px;
       width: 100%;
@@ -659,6 +667,59 @@ main {
 // FAQ Page
 .faq-container {
   padding-top: 70px;
+}
+
+// Blogs
+.blogs-container {
+  .blog-card {
+    strong {
+      span {
+        margin: 5px 5px 5px 0;
+      }
+    }
+    .blog-img {
+      width: 300px;
+      height: 100%;
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+    a {
+      padding-top: 10px;
+    }
+  }
+}
+
+// Blog Post
+.blog-post-container {
+  padding: 75px 0 0 0;
+  a {
+    padding-bottom: 20px;
+    span {
+      padding-left: 5px;
+    }
+  }
+  .blog-post-header {
+    width: 100%;
+    h1 {
+      font-weight: bold;
+
+    }
+    span {
+      margin: 5px 5px 5px 0;
+    }
+    .blog-header-img {
+      width: 100%;
+      height: 500px;
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+  }
+  .blog-post {
+    padding-top: 25px;
+    white-space: pre-line;
+  }
 }
 
 // Contact Form
@@ -973,8 +1034,6 @@ main {
 
 }
 
-
-
 // Admin Users List
 .users-container {
   padding-top: 100px;
@@ -982,6 +1041,14 @@ main {
     margin-bottom: 50px;
   }
   .admin-user-card {
+    margin-bottom: 50px;
+  }
+}
+
+// Blog Post List
+.blogs-container {
+  padding-top: 100px;
+  .admin-blog-card {
     margin-bottom: 50px;
   }
 }
@@ -1032,7 +1099,6 @@ main {
 .product-edit-container {
   padding: 100px 0 50px 0;
   .product-edit-card {
-
     .form-floating {
       .invalid-feedback {
         position: absolute;
@@ -1060,6 +1126,72 @@ main {
           border-top-left-radius: 0;
           border-top-right-radius: 0;
         }
+      }
+      .file {
+        position: relative;
+        overflow: hidden;
+        margin: 5px 0 20px 0;
+        input {
+          position: absolute;
+          font-size: 50px;
+          opacity: 0;
+          right: 0;
+          top: 0;
+        }
+      }
+
+    }
+    .form-register .form-floating:focus-within {
+      z-index: 2;
+    }
+  }
+}
+
+// Blog Post Edit
+.blog-edit-container {
+  padding: 100px 0 50px 0;
+  .blog-edit-card {
+    .form-floating {
+      .invalid-feedback {
+        position: absolute;
+        top: 0;
+      }
+    }
+    .form-blog-post-edit {
+      padding: 15px;
+      margin: auto;
+      .form-select {
+        padding: 0 15px;
+        border-radius: 0;
+      }
+      .ql-toolbar.ql-snow {
+        border-top-left-radius: 4px;
+        border-top-right-radius: 4px;
+      }
+      .ql-container.ql-snow {
+        border-bottom-left-radius: 4px;
+        border-bottom-right-radius: 4px;
+      }
+      input {
+        &#title, &#tags {
+          border-bottom-left-radius: 0;
+          border-bottom-right-radius: 0;
+          margin-top: 10px;
+        }
+        &#color, &#description {
+          border-radius: 0;
+        }
+        &#headerImage, &#author {
+          margin-bottom: 10px;
+          border-top-left-radius: 0;
+          border-top-right-radius: 0;
+        }
+        &#slug {
+          margin: 10px 0;
+        }
+      }
+      .form-check {
+        margin: 20px 0;
       }
       .file {
         position: relative;

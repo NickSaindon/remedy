@@ -284,7 +284,7 @@ const Home = () => {
                 <div className="faq-content">
                   <h1>Register</h1>
                   <p>
-                    If you are a vendor of Kratom and your company that uses GMP then look no further. We produce high quality Kratom from Thailand. Get your Maeng Da or 
+                    If you are a vendor of Kratom and your company uses GMP and testing then look no further. We produce high quality Kratom from Thailand. Get your Maeng Da or 
                     tradiotional white, green or red veins here. 
                   </p>
                 </div>
@@ -309,9 +309,7 @@ const Home = () => {
                           </ul>
                           <div className="d-flex justify-content-center p-3">
                           <Link href={`/contact`} passHref>
-
-                          <button type="button" className="btn btn-outline-primary light">Contact Us</button>
-
+                            <button type="button" className="btn btn-outline-primary light">Contact Us</button>
                           </Link>
                           </div>
                       </div>

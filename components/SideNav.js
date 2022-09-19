@@ -31,6 +31,11 @@ const SideNav = () => {
               Users
             </a>
           </Link>
+          <Link href="/admin/blogs" passHref>
+            <a className="nav-link">
+              Blogs
+            </a>
+          </Link>
         </nav>
       }
       {userInfo && userInfo.isVendor === true &&
