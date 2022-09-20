@@ -9,7 +9,10 @@ const BlogPost = (props) => {
   const { blog } = props;
 
   return (
-    <Layout title="Blog Post Page">
+    <Layout 
+      title={`${blog.title}`}
+      description={`${blog.description}`}
+    >
       <div className="blog-post-container">
         <div className="container">
           <div className="row">
@@ -18,7 +21,7 @@ const BlogPost = (props) => {
               passHref
             >
               <a>
-                <i class="bi bi-arrow-left"></i>
+                <i className="bi bi-arrow-left"></i>
                 <span>Back to Blogs</span>
               </a>
             </Link>
