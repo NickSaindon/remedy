@@ -1701,6 +1701,16 @@ footer {
       }
     }
   }
+  // Blog Post
+  .blog-post-container {
+    .blog-post-header {
+      .blog-header-img {
+        width: 100%;
+        height: 250px;
+
+      }
+    }
+  }
   // Signin Form
   .login-container {
     height: 100vh;
@@ -2033,6 +2043,16 @@ footer {
       }
     }
   }
+  // Blog Post
+  .blog-post-container {
+    .blog-post-header {
+      .blog-header-img {
+        width: 100%;
+        height: 300px;
+
+      }
+    }
+  }
   // Signin Form
   .login-container {
     height: 100vh;
@@ -2145,9 +2165,7 @@ footer {
   }
 }
 
-
 @media (min-width: 993px) and (max-width: 1200px){
-
   .header-container {
     height: 100%;
     header {
@@ -2167,7 +2185,16 @@ footer {
       }
     }
   }
+  // Blog Post
+  .blog-post-container {
+    .blog-post-header {
+      .blog-header-img {
+        width: 100%;
+        height: 350px;
 
+      }
+    }
+  }
   footer {
     width: 100%;
     height: 370px;

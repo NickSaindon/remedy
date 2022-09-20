@@ -11,7 +11,7 @@ const Blogs = (props) => {
 
   useEffect(() => {
     gsap.timeline()
-    .from(".page-header-left .faq-img", {transform: 'scaleX(0)', transformOrigin: 'center'})
+    .from(".page-header-left .blog-img", {transform: 'scaleX(0)', transformOrigin: 'center'})
     .from(".page-header-right h1:nth-child(1)", {y:-100, opacity:0, ease:"back", duration: 1})
     .from(".page-header-right h1:nth-child(2)", {x:-100, opacity:0, ease:"back", duration: 1})
     .set(".page-header-right .bi-arrow-down", {"visibility": "visible"})

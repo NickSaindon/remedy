@@ -29,8 +29,8 @@ const BlogPost = (props) => {
             </div>
           </div>
           <div className="row">
-            <div className="blog-post ql-snow ql-editor">
-              <p>{parse(blog.article)}</p>
+            <div className="blog-post">
+              <div className="ql-snow ql-editor">{parse(blog.article)}</div>
             </div>
           </div>
         </div>
