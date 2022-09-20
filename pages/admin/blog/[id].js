@@ -47,37 +47,48 @@ const QuillNoSSRWrapper = dynamic(import('react-quill'), {
   // Quill Modules
 const modules = {
   toolbar: [
-    [{ header: '1' }, { header: '2' }, { font: [] }],
-    [{ size: [] }],
-    ['bold', 'italic', 'underline', 'strike', 'blockquote'],
-    [
-      { list: 'ordered' },
-      { list: 'bullet' },
-      { indent: '-1' },
-      { indent: '+1' },
-    ],
+    ['bold', 'italic', 'underline', 'strike'],
+    ['blockquote', 'code-block'],
+  
+    [{ 'header': 1 }, { 'header': 2 }],
+    [{ 'list': 'ordered'}, { 'list': 'bullet' }],
+    [{ 'script': 'sub'}, { 'script': 'super' }],
+    [{ 'indent': '-1'}, { 'indent': '+1' }],
+    [{ 'direction': 'rtl' }],
+  
+    [{ 'size': ['small', false, 'large', 'huge'] }],
+    [{ 'header': [1, 2, 3, 4, 5, 6, false] }],
+  
+    [{ 'color': [] }, { 'background': [] }],
+    [{ 'font': [] }],
+    [{ 'align': [] }],
     ['link', 'image', 'video'],
     ['clean'],
   ],
   clipboard: {
     // toggle to add extra line breaks when pasting HTML:
-    matchVisual: false,
+    matchVisual: true,
   },
 };
 
 // Quill format
 const formats = [
-  'header',
-  'font',
-  'size',
-  'bold',
-  'italic',
-  'underline',
+  'bold', 
+  'italic', 
+  'underline', 
   'strike',
   'blockquote',
+  'code-block',
+  'header',
   'list',
   'bullet',
+  'script',
   'indent',
+  'direction',
+  'size',
+  'color',
+  'font',
+  'align',
   'link',
   'image',
   'video',
