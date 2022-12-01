@@ -1,11 +1,21 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import Layout from '../components/Layout';
 import gsap from 'gsap';
 import Image from "next/image";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
+import Lightbox from "yet-another-react-lightbox";
+import "yet-another-react-lightbox/styles.css";
+
+import image1 from "../public/images/factory-sign.jpg";
+import image2 from "../public/images/factory-sign.jpg";
+import image3 from "../public/images/factory-sign.jpg";
+
 gsap.registerPlugin(ScrollTrigger);
 
 const About = () => {
+
+  const [open, setOpen] = useState(false);
+
 
   useEffect(() => {
     gsap.timeline()
@@ -95,27 +105,53 @@ const About = () => {
                 is to maintain a high quality standard from plantation to consumer through mutual goals of Good Manufacturing Practices.
                 <br/><br/> 
                 Another goal of Remedy Exports is to help meet the needs of all the clients we work with. We do this by over-seeing the end-to-end production, 
-                from farm, factory, exportation Remedy handles every step of the process.  By partnering with our clients we look to create a process that will standardize
-                this industry in a way that is safe a profitable for all.    
+                from farm, factory, exportation Remedy handles every step of the process.  By partnering with our clients we look to create a process that will standardizes
+                this industry in a way that is safe and profitable for all.    
                 <br/><br/>
-                Our company's factory and headquarters is located in the district of Bang Kapong in the province of Chachoengsao, Thailand. 
+                Remedy Exports has partnered with over <b>30 plantations</b> in Thailand with trees that range from 1 year old all the way up to <b>70 years old</b>.  Our quality Kratom
+                has consistently tested MIT levels over 2% and we have eight different varieties of leafs and species of Kratom.  This variety includes Leon Tong which translates as golden coin from Thai 
+                and is a hybrid that is not know by Westren cultures. The reason Thai's call it Leon Tong is because of its small bud that turns gold at the bottom of the leaf.  Leon Tong is white 
+                and red vein where the center vein is red and the veins off the center are white.    
               </p>
-              <h2 className="text-center">Investment Program</h2>
-              <p>
-                The aim of this investment program is to provide our clients with high-quality Kratom that is exclusively procured for their company’s needs. We look to support 
-                the needs of our clients through our investment program that will facilitate the end-to-end production of Kratom in the local market. Working with our local 
-                partnerships to expand our clients supply and demand in the US and the World market. Our approach is to implement a scaleable solution with a proactive approach 
-                to problem solving that keeps business cost low, and creates room for expansion for our clients. We understand that our client's business and future business needs 
-                should be functional, efficient and proactive solutions to procurement, processing and exporting this valuable commodity. Here at Remedy we believe we hold the 
-                remedy to helping our clients current and future business reach their full potential in the industry.
-              </p>
-              <ul>
-                <li>Remedy Exports covers X amount of acres of plantation to grow Kratom trees.</li>
-                <li>Investors purchase interested units equivalent to X number of trees. In total X Kratom trees are planted.</li>
-                <li>Plantation returns are aggregated and distributed interest units held.</li>
-                <li>Remedy Exports handles the end-to-end management of the Kratom plantation.</li>
-                <li>Investors secure high-quality Kratom trees exclusively for their business within the investment period.</li>
-              </ul>
+              </div>
+
+
+
+          </section>
+          <section className="investment-program">
+          <div className="row">
+            <div className="col-lg-12">
+            <h2 >Investment Program</h2>
+            <p>
+              The aim of this investment program is to provide our clients with high-quality Kratom that is exclusively procured for their company’s needs. We look to support 
+              the needs of our clients through our investment program that will facilitate the end-to-end production of Kratom in the local market. Working with our local 
+              partnerships to expand our clients supply and demand in the US and the World market. Our approach is to implement a scaleable solution with a proactive approach 
+              to problem solving that keeps business cost low, and creates room for expansion for our clients. We understand that our client's business and future business needs 
+              should be functional, efficient and proactive solutions to procurement, processing and exporting this valuable commodity. Here at Remedy we believe we hold the 
+              remedy to helping our clients current and future business reach their full potential in the industry.
+            </p>
+            <ul>
+              <li>Remedy Exports covers X amount of acres of plantation to grow Kratom trees.</li>
+              <li>Investors purchase interested units equivalent to X number of trees. In total X Kratom trees are planted.</li>
+              <li>Plantation returns are aggregated and distributed interest units held.</li>
+              <li>Remedy Exports handles the end-to-end management of the Kratom plantation.</li>
+              <li>Investors secure high-quality Kratom trees exclusively for their business within the investment period.</li>
+            </ul>
+            </div>
+            </div>
+          </section>
+          <section className="business-proposal">
+            <div className="row">
+              <div className="col-lg-6 proposal-pdf">
+                <a href="images/pdf/investment-proposal.pdf" target="_blank">
+                  <iframe id="iframepdf" src="images/pdf/investment-proposal.pdf"></iframe>
+                </a>
+              </div>
+              <div className="col-lg-6 proposal-text"> 
+                <h2>Investment Proposal</h2>
+                <p>
+                  Download our Investment Proposal and see what we can do for your business.  We have laid out this proposal for interested clients to see what Remedy Exports has to offer to their business.  Why continue to buy your Kratom when you can have your own exclusive supply?  Clients literally watch their investments grow in the origin place of Kratom and where it gets its name from, Thailand!  Kratom grows so fast that clients can get their first harvest within 4 to 6 months.  Once harvest have begun new harvest can happen between 15 to 30 days.  Our clients don’t have to worry about maintaining their supply or quality because harvest are taken from the same trees that are grown with organic fertilizer and organic pesticides.                </p>
+              </div>
             </div>
           </section>
           <section className="process-section">
@@ -146,19 +182,66 @@ const About = () => {
             </div>
           </section>
           <section className="factory-section">
-            <div className="row">
-              <div className="col-md-12">
+            <div className="row gy-5">
+              <div className="col-md-12 p-2">
                 <h2 className="text-center">Our Factory</h2>
                 <p>
-                  Our factory is located in the district of Bang Kapong, the province of Chachoengsao, Thailand. This is where we wash, dry, grind, and sanitize 
-                  the Kratom for shipment. The factory is a fully functional facility for processing Kratom. Washing tubs, drying machines, grinding machines, 
-                  UVGI sanitization room, packaging rooms, storage rooms, and more.
+                  Remedy Exports factory layout was designed with an easy of flow in mind. Starting with shipment of the fresh Kratom leaves going into the raw material room. 
+                  Once all the materials have been brought in, they will go to the washing room, and then the drying room. After the leaves have been dried, they will be 
+                  taken into the grinding room where we have an industrial grinder that can grind one ton a day. Once grinded the Kratom will be weighed and taken through 
+                  to be passed through the microwave sanitization. Then packaged and left-over night under the UVGI for another sanitization. Finally, the Kratom will be 
+                  packed in boxes and placed on pallets ready for delivery.<br/><br/>
+
                 </p>
               </div>
               <div className="col-md-6 offset-md-3">
-                <Image src="/images/factory-sign.jpg" className="d-block w-100" width={650} height={415} alt="gamma treatment" />
+                <Image onClick={() => setOpen(true)} src="/images/factory-sign.jpg" className="d-block w-100" width={650} height={415} alt="gamma treatment" />
+              </div>
+              <div className="col-md-12 p-2">
+                <h2 className="text-center">Testing</h2>
+                <p>
+                  In Thailand there are a few lab test centers that the government accepts results from. Central Laboratory of Thailand is one of these labs and is where we 
+                  have our Kratom tested. The testing methods are done with High Performance Liquid Chromatography (HPLC). This method, validation, and analysis is one of 
+                  the most widely used techniques for drug testing in formulations and biological fluids. Also, this method is the most widely used in testing Kratom in 
+                  the United States. We do not test our Kratom in house as to avoid any possible questions of unethical practices, and to align with the Thai government 
+                  with accredited and accepted lab results.
+                </p>
               </div>
             </div>
+            
+
+
+            <Lightbox
+              open={open}
+              close={() => setOpen(false)}
+              slides={[image1, image2, image3]}
+              render={{
+                slide: (image, offset, rect) => {
+                  const width = Math.round(Math.min(rect.width, (rect.height / image.height) * image.width));
+                  const height = Math.round(Math.min(rect.height, (rect.width / image.width) * image.height));
+
+                  return (
+                    <div style={{ position: "relative", width, height }}>
+                      <Image
+                        src={image}
+                        layout="fill"
+                        loading="eager"
+                        placeholder="blur"
+                        objectFit="contain"
+                        alt={"alt" in image ? image.alt : ""}
+                        sizes={
+                          typeof window !== "undefined"
+                            ? `${Math.ceil((width / window.innerWidth) * 100)}vw`
+                            : `${width}px`
+                        }
+                      />
+                    </div>
+                  );
+                }
+              }}
+            />
+
+
           </section>
         </div>
       </div>

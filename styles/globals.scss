@@ -24,6 +24,10 @@ a {
   text-decoration: none;
 }
 
+#iframepdf {
+  height: 445px;
+}
+
 section {
   padding: 25px 0;
 }
@@ -597,7 +601,29 @@ main {
       background-size: cover;
       background-position: center;
     }
+
   }
+  .investment-program {
+    padding: 0 20px;
+    h2 {
+      text-align: center;
+    }
+  }
+  .business-proposal {
+    padding: 50px 25px;
+    .proposal-pdf {
+      text-align: center;
+      margin: 0 auto;
+    }
+    .proposal-text {
+      padding-top: 75px;
+      h2 {
+        text-align: center;
+      }
+    }
+
+  }
+
   .process-section {
     .process-one {
       .one-content {

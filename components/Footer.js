@@ -36,6 +36,13 @@ const Footer = () => {
                     </a> 
                   </Link>
                 </li>
+                <li>
+                  <Link href="https://www.linkedin.com/company/remedy-exports/" passHref>
+                    <a target="_black" rel="noopener noreferrer">
+                      <i className="bi bi-linkedin" />
+                    </a>
+                  </Link>
+                </li>
               </ul>
             </div>
             <div id="contact">
