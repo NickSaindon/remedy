@@ -17,7 +17,7 @@ function MyApp({ Component, pageProps }) {
 
   return (
     <StoreProvider>
-      <PayPalScriptProvider>
+      <PayPalScriptProvider deferLoading={true}>
         <PageTransitions 
           route={router.asPath}
         >

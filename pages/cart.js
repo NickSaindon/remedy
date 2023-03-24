@@ -36,7 +36,17 @@ const Cart = () => {
         type: 'CART_ADD_ITEM', 
         payload: { 
           ...item, 
-          quantity
+          quantity,
+          tierPrice: quantity <= 10 ? (item.price
+            ) : quantity >= 11 && quantity <= 15 ? (
+              item.price - 1
+            ) : quantity >= 16 && quantity <= 19 ? (
+              item.price - 2
+            ) : quantity >= 20 && quantity <= 29 ? (
+              item.price - 3
+            ) : (
+              item.price - 5
+            ),
         } 
       });
     };
@@ -71,7 +81,7 @@ const Cart = () => {
                   <div className="product-img">
                     <Image src={item.imageOne} className="d-block w-100" width={50} height={50} alt="..." />
                   </div>
-                  <div className=" product-name d-flex align-items-center">
+                  <div className="product-name d-flex align-items-center">
                     <p className="text-center">
                       {item.name}<br />
                       {item.color}
@@ -92,6 +102,11 @@ const Cart = () => {
                         </option>
                       ))}
                     </select>
+                  </div>
+                  <div className="price d-flex align-items-center">
+                    <p onChange={(e) =>
+                        updateCartHandler(item, e.target.value)
+                      }>${item.tierPrice}</p>
                   </div>
                   <div className="grind-select">
                     <span>Process Type</span>

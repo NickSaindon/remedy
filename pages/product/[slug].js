@@ -28,9 +28,18 @@ const ProductDetails = (props) => {
     const existItem = state.cart.cartItems.find((x) => x._id === product._id);
     const quantity = existItem ? existItem.quantity + 1 : 1;
     const processType = 'nano';
+    const tierPrice = quantity <= 10 ? (product.price
+      ) : quantity >= 11 && quantity <= 15 ? (
+        product.price - 1
+      ) : quantity >= 16 && quantity <= 19 ? (
+        product.price - 2
+      ) : quantity >= 20 && quantity <= 29 ? (
+        product.price - 3
+      ) : (
+        product.price - 5
+      )
 
-
-    dispatch({  type: 'CART_ADD_ITEM', payload: {...product, quantity, processType}})
+    dispatch({  type: 'CART_ADD_ITEM', payload: {...product, quantity, tierPrice, processType}})
   }
 
   return (

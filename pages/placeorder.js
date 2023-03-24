@@ -20,9 +20,9 @@ const PlaceOrder = () => {
   } = state;
   const round2 = (num) => Math.round(num * 100 + Number.EPSILON) / 100; // 123.456 => 123.46
   const itemsPrice = round2(cartItems.reduce((a, c) => a + c.quantity * c.price * 1000, 0));
-  const shippingPrice = itemsPrice >= 120000 ? 0 : 150;
+  const shippingPrice = itemsPrice >= 240000 ? 0 : 150;
   const taxPrice = round2(itemsPrice * 0.15);
-  const totalPrice = round2(itemsPrice + shippingPrice);
+  const totalPrice = round2(itemsPrice + shippingPrice + taxPrice);
 
   useEffect(() => {
     if (userInfo.isVendor) {
@@ -99,12 +99,6 @@ const PlaceOrder = () => {
                   <p>Shipment will be sent through <b>{shippingAddress.shipmentType}</b></p>
                 </div>
               </div>
-              <div className="card payment-card">
-                <div className="card-body">
-                  <h2 className="card-title">Payment</h2>
-                  <p>A Wise transfer payment request will be to <b>{shippingAddress.email}</b></p>
-                </div>
-              </div>
               <div className="card order-card">
                 <div className="card-body">
                   <h2 className="card-title">Order Items</h2>
@@ -144,6 +138,10 @@ const PlaceOrder = () => {
                     <div className="summary d-flex justify-content-between">
                         <h6>Items:</h6>
                         <span className="text-muted">${itemsPrice.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}</span>
+                    </div>
+                    <div className=" summary d-flex justify-content-between">
+                        <h6>Tax:</h6>
+                        <span className="text-muted">${taxPrice.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}</span>
                     </div>
                     <div className=" summary d-flex justify-content-between">
                         <h6>Shipping:</h6>

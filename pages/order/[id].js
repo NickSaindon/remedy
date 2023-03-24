@@ -32,14 +32,14 @@ function reducer(state, action) {
     case 'DELIVER_SUCCESS':
       return { ...state, loadingDeliver: false, successDeliver: true };
     case 'DELIVER_FAIL':
-      return { ...state, loadingDeliver: false, errorDeliver: action.payload };
+      return { ...state, loadingDeliver: false };
     case 'DELIVER_RESET':
       return {
         ...state,
         loadingDeliver: false,
         successDeliver: false,
-        errorDeliver: '',
       };
+
     default:
       state;
   }
@@ -53,37 +53,22 @@ const Order = ({params}) => {
   const { userInfo } = state;
   
   const [
-    { loading, error, order, successPay, loadingDeliver, successDeliver },
+    {
+      loading,
+      error,
+      order,
+      successPay,
+      loadingPay,
+      loadingDeliver,
+      successDeliver,
+    },
     dispatch,
   ] = useReducer(reducer, {
     loading: true,
     order: {},
     error: '',
   });
-  const {
-    shippingAddress,
-    orderItems,
-    itemsPrice,
-    taxPrice,
-    shippingPrice,
-    totalPrice,
-    isPaid,
-    paidAt,
-    isDelivered,
-    deliveredAt,
-  } = order;
 
-  const redirectToStripeCheckout = async () => {
-    const {
-      data: { id },
-    } = await axios.post('/api/checkout_sessions', {
-      items: Object.entries(orderItems).map(([_, { id, quantity }]) => ({
-        price: id,
-        quantity,
-      }))
-    });
-  };
-  
   useEffect(() => {
     if (!userInfo) {
       return router.push('/login');
@@ -100,24 +85,51 @@ const Order = ({params}) => {
       }
     };
     if (
-      !order._id ||
-      successPay ||
-      successDeliver ||
+      !order._id || 
+      successPay || 
+      successDeliver || 
       (order._id && order._id !== orderId)
-    ) {
-      fetchOrder();
-      if (successPay) {
-        dispatch({ type: 'PAY_RESET' });
-      }
-      if (successDeliver) {
-        dispatch({ type: 'DELIVER_RESET' });
-      }
-    } 
-  }, [order, successPay, successDeliver]);
-  
-  const createOrder = (data, actions) => {
-    return actions.order
-      .create({
+      ) {
+        fetchOrder();
+        if (successPay) {
+          dispatch({ type: 'PAY_RESET' });
+        }
+        if (successDeliver) {
+          dispatch({ type: 'DELIVER_RESET' });
+        }
+    } else {
+      const loadPaypalScript = async () => {
+        const { data: clientId } = await axios.get('/api/keys/paypal', {
+          headers: { authorization: `Bearer ${userInfo.token}` },
+        });
+        paypalDispatch({
+          type: 'resetOptions',
+          value: {
+            'client-id': clientId,
+            currency: 'USD',
+          }
+        });
+        paypalDispatch({ type: 'setLoadingStatus', value: 'pending' });
+      };
+      loadPaypalScript();
+    }
+  }, [order, orderId, paypalDispatch, successDeliver, successPay]);
+
+  const {
+    shippingAddress,
+    orderItems,
+    itemsPrice,
+    taxPrice,
+    shippingPrice,
+    totalPrice,
+    isPaid,
+    paidAt,
+    isDelivered,
+    deliveredAt,
+  } = order;
+
+  function createOrder(data, actions) {
+    return actions.order.create({
         purchase_units: [
           {
             amount: { value: totalPrice },
@@ -129,59 +141,35 @@ const Order = ({params}) => {
       });
   }
 
-  async function paidOrderHandler() {
-    try {
-      dispatch({ type: 'PAY_REQUEST' });
-      const { data } = await axios.put(
-        `/api/orders/${order._id}/pay`,
-        {},
-        {
-          headers: { authorization: `Bearer ${userInfo.token}` },
-        }
-      );
-      dispatch({ type: 'PAY_SUCCESS', payload: data });
-      toast.success("Order is paid", {
-        theme: "colored"
-      });
-    } catch (err) {
-      dispatch({ type: 'PAY_FAIL', payload: getError(err) });
-      toast.error(getError(err), {
-        theme: "colored"
-      });
-    }
+  function onApprove(data, actions) {
+    return actions.order.capture().then(async function (details) {
+      try {
+        dispatch({ type: 'PAY_REQUEST' });
+        const { data } = await axios.put(`/api/orders/${order._id}/pay`, 
+          details,
+          {
+            headers: { authorization: `Bearer ${userInfo.token}` },
+          }
+        );
+        dispatch({ type: 'PAY_SUCCESS', payload: data });
+        toast.success("Order is paid", {
+          theme: "colored"
+        });
+      } catch (err) {
+        dispatch({ type: 'PAY_FAIL', payload: getError(err) });
+        toast.error(getError(err), {
+          theme: "colored"
+        });
+      }
+    })
+  } 
 
-
-
-
-    // return actions.order.capture().then(async function (details) {
-    //   try {
-    //     dispatch({ type: 'PAY_REQUEST' });
-    //     const { data } = await axios.put(
-    //       `/api/orders/${order._id}/pay`,
-    //       details,
-    //       {
-    //         headers: { authorization: `Bearer ${userInfo.token}` },
-    //       }
-    //     );
-    //     dispatch({ type: 'PAY_SUCCESS', payload: data });
-    //     toast.error("Order is paid", {
-    //       theme: "colored"
-    //     });
-    //   } catch (err) {
-    //     dispatch({ type: 'PAY_FAIL', payload: getError(err) });
-    //     toast.error(getError(err), {
-    //       theme: "colored"
-    //     });
-    //   }
-    // });
+  function onError(err) {
+    toast.error(getError(err), {
+      theme: "colored"
+    });
   }
-  
-  // const onError = (err) => {
-  //   toast.error(getError(err), {
-  //     theme: "colored"
-  //   });
-  // }
-  
+    
   async function deliverOrderHandler() {
     try {
       dispatch({ type: 'DELIVER_REQUEST' });
@@ -231,8 +219,7 @@ const Order = ({params}) => {
                 </Link>
               </div>
             )}
-
-            </div>
+          </div>
           {loading ? (
             <div className="spinner-border text-primary" role="status">
               <span className="visually-hidden">Loading...</span>
@@ -243,7 +230,7 @@ const Order = ({params}) => {
             })
           ) : (
             <div className="row">
-              <div className="col-lg-12">
+              <div className="col-lg-8">
                 <div className="card shipping-card">
                   <div className="card-body">
                     <h2 className="card-title">Shipping Address</h2>
@@ -297,7 +284,7 @@ const Order = ({params}) => {
                   <div className="card-body">
                     <h2 className="card-title">Payment</h2>
                     <p>
-                      Wise transfer payment request was sent to <b>{shippingAddress.email}</b>
+                      <b>Email:</b> {shippingAddress.email}
                     </p>
                     <p>
                       <b>Status:</b> {isPaid ? `paid at ${moment(paidAt).format('MM/DD/YYYY')}` : 'not paid'}
@@ -347,6 +334,51 @@ const Order = ({params}) => {
                         ))}
                       </tbody>
                     </table>
+                  </div>
+                </div>
+              </div>
+              <div className="col-lg-4">
+                <div className="card summary-card">
+                  <div className="card-body">
+                    <h2 className="card-title">Order Summary</h2>
+                    <div className="summary d-flex justify-content-between">
+                      <h6>Items:</h6>
+                      <span className="text-muted">${itemsPrice.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}</span>
+                    </div>
+                    <div className=" summary d-flex justify-content-between">
+                        <h6>Tax:</h6>
+                        <span className="text-muted">${taxPrice.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}</span>
+                    </div>
+                    <div className=" summary d-flex justify-content-between">
+                      <h6>Shipping:</h6>
+                      <span className="text-muted">${shippingPrice.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}</span>
+                    </div>
+                    <div className="summary-total d-flex justify-content-between">
+                      <h5>Total:</h5>
+                      <span>${totalPrice.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}</span>
+                    </div>
+                    {!isPaid && (
+                      <div>
+                        {isPending ? (
+                          <div className="spinner-border text-primary text-center" role="status">
+                            <span className="visually-hidden">Loading...</span>
+                          </div>
+                        ) : (
+                          <div className="w-full">
+                            <PayPalButtons
+                              createOrder={createOrder}
+                              onApprove={onApprove}
+                              onError={onError}
+                            ></PayPalButtons>
+                          </div>
+                        )}
+                        {loadingPay && (
+                          <div className="spinner-border text-primary text-center" role="status">
+                            <span className="visually-hidden">Loading...</span>
+                          </div>
+                        )}
+                      </div>
+                    )}
                   </div>
                 </div>
               </div>

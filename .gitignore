@@ -18,6 +18,8 @@
 # misc
 .DS_Store
 *.pem
+/utils/data.js
+/pages/api/seed.js
 
 # debug
 npm-debug.log*
