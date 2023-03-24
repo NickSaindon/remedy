@@ -22,48 +22,14 @@ const Blogs = (props) => {
   return (
     <Layout 
       title="Blog Page"
-      description="Remedy Exports is a Thai based manufacture and export company that works with clients to procure the best Thai Kratom.  We handle the end-to-end process to supply quality Kratom that is safe from any 
-      metals, bacteria, and that is grown naturally without the usage of any non-organic pesticides or fertilizers.">
-      <div className="blogs-container">
-        <div className="page-header">
-          <div className="container-fluid">
-            <div className="row">
-              <div className="col-lg-6 page-header-left">
-                <div className="blog-img" />
-              </div>
-              <div className="col-lg-6 page-header-right text-center">
-                <h1>Blog</h1> 
-                <h1 style={{marginTop: "35px", marginBottom: "35px"}}>Post</h1>  
-                <i className="bi bi-arrow-down"></i>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div className="container">
-          <div className="row mb-2">
-            {blogs.filter(blog => blog.published === true).map((blog) => (
-              <div className="col-md-12 blog-card" key={blog._id}>
-                <div className="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
-                  <div className="col p-4 d-flex flex-column position-static">
-                    <h3 className="mb-0">{blog.title}</h3>
-                    <div className="mb-1 text-muted">{moment(blog.createdAt).format('MM/DD/YYYY')}</div>
-                    <p className="card-text mb-auto">{blog.description}</p>
-                    <Link 
-                      key={blog.title}
-                      href={`/blog/${blog.slug}`} 
-                      passHref
-                    >
-                      <a className="stretched-link">Continue reading</a>
-                    </Link>
-                  </div>
-                  <div className="col-auto d-none d-lg-block">
-                    <div className="blog-img" style={{backgroundImage: `url(${blog.headerImage})`}}></div>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
+      description="Remedy Exports is a wholesale export brokerage for Asian produce from Thailand to US and Europe vendors.  We handle logistics from farm to exportation.">
+      <div class="error-page-wrap">
+        <article className="error-page gradient">
+          <hgroup>
+            <h1>Oops!</h1>
+            <h2>Site is Temporarily Being Fixed</h2>
+          </hgroup>
+        </article>
       </div>
     </Layout>
   )

@@ -64,8 +64,7 @@ const Register = () => {
   return (
     <Layout
       title="Register Page"
-      description="Remedy Exports is a Thai based manufacture and export company that works with clients to procure the best Thai Kratom.  We handle the end-to-end process to supply quality Kratom that is safe from any 
-      metals, bacteria, and that is grown naturally without the usage of any non-organic pesticides or fertilizers.">
+      description="Remedy Exports is a wholesale export brokerage for Asian produce from Thailand to US and Europe vendors.  We handle logistics from farm to exportation.">
       <div className="register-container text-center">
         <ToastContainer 
           position="top-center" 

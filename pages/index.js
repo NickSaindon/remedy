@@ -173,7 +173,7 @@ const Home = () => {
       title="Home Page" 
       description="Remedy Exports is a wholesale export brokerage for Asian produce from Thailand to US and Europe vendors.  We handle logistics from farm to exportation.">
       <div class="error-page-wrap">
-        <article class="error-page gradient">
+        <article className="error-page gradient">
           <hgroup>
             <h1>Oops!</h1>
             <h2>Site is Temporarily Being Fixed</h2>
