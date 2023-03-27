@@ -79,13 +79,7 @@ const Register = () => {
             <form onSubmit={handleSubmit(submitHandler)} className="col-lg-4 col-md-12 col-sm-12">
               <Image src="/images/remedy_exports_logo.png" width={150} height={145} alt=""/>
               <h1 className="h3 mb-3 fw-normal">Please Register</h1>
-              <p>
-                <b>Disclaimer:</b> Vendors who are interested to purchase shipments of 
-                Kratom from Remedy will register here.  There is a 24 hour period where Remedy will 
-                verify all information on your business.  Please be sure that all the information is 
-                correct and that the best contact number is given if we need to reach you for further 
-                questions about your information.
-              </p>
+
               <div className="form-floating">
                 <Controller
                   name="name"
